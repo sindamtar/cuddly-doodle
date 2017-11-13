@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -19,6 +20,9 @@ public class Animal implements Serializable {
 	@Id
 	private int id;
 	private String name;
+
+	@ManyToOne
+	private User user;
 
 	@OneToMany(mappedBy = "animal")
 	private List<Annonce> annonces;
@@ -50,6 +54,14 @@ public class Animal implements Serializable {
 
 	public void setAnnonces(List<Annonce> annonces) {
 		this.annonces = annonces;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 }

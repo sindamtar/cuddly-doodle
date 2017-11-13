@@ -19,6 +19,11 @@ public class User implements Serializable {
 	@Id
 	private int id;
 	private String name;
+	private String login;
+	private String password;
+
+	@OneToMany(mappedBy = "user")
+	private List<Animal> animals;
 
 	@OneToMany(mappedBy = "user")
 	private List<Annonce> annonces;
@@ -50,6 +55,30 @@ public class User implements Serializable {
 
 	public void setAnnonces(List<Annonce> annonces) {
 		this.annonces = annonces;
+	}
+
+	public List<Animal> getAnimals() {
+		return animals;
+	}
+
+	public void setAnimals(List<Animal> animals) {
+		this.animals = animals;
+	}
+
+	public String getLogin() {
+		return login;
+	}
+
+	public void setLogin(String login) {
+		this.login = login;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 }
