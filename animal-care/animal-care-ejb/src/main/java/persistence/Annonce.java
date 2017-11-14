@@ -13,12 +13,14 @@ import javax.persistence.Table;
  * Entity implementation class for Entity: Annonce
  *
  */
+
+
 @Entity
 @Table(name = "t_annonce")
 
 public class Annonce implements Serializable {
 
-	@EmbeddedId
+@EmbeddedId
 	private AnnonceId annonceId;
 	private Date startDate;
 	private Date endDate;

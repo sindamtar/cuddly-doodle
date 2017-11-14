@@ -5,6 +5,7 @@ import java.io.Serializable;
 import javax.persistence.Embeddable;
 
 @Embeddable
+
 public class AnnonceId implements Serializable {
 	private int idUser;
 	private int idAnimal;

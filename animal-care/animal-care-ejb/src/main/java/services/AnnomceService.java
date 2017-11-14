@@ -2,6 +2,7 @@ package services;
 
 import java.util.Date;
 
+
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -9,6 +10,7 @@ import javax.persistence.PersistenceContext;
 import persistence.Animal;
 import persistence.Annonce;
 import persistence.User;
+
 
 /**
  * Session Bean implementation class AnnomceService
@@ -33,4 +35,9 @@ public class AnnomceService implements AnnomceServiceRemote, AnnomceServiceLocal
 
 	}
 
+	
+
+	
+
+	
 }

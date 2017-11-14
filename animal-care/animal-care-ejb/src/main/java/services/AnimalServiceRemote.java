@@ -7,5 +7,4 @@ import utilities.IGenericDAO;
 
 @Remote
 public interface AnimalServiceRemote extends IGenericDAO<Animal> {
-
 }

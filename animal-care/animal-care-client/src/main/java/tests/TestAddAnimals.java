@@ -5,6 +5,7 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
 import persistence.Animal;
+import persistence.User;
 import services.AnimalServiceRemote;
 import services.AnnomceServiceRemote;
 import services.UserServicesRemote;
@@ -19,15 +20,17 @@ public class TestAddAnimals {
 				.lookup("animal-care-ear/animal-care-ejb/AnimalService!services.AnimalServiceRemote");
 		AnnomceServiceRemote annomceServiceRemote = (AnnomceServiceRemote) context
 				.lookup("animal-care-ear/animal-care-ejb/AnnomceService!services.AnnomceServiceRemote");
-
+		User user = userServicesRemote.findUserByLogin("sindam");
 		Animal animal = new Animal();
-		animal.setId(3);
+		animal.setId(1);
 		animal.setName("lara");
+		animal.setUser(user);
 
 		Animal animal2 = new Animal();
 		animal2.setId(2);
 		animal2.setName("diego");
-		
+		animal2.setUser(user);
+
 		animalServiceRemote.save(animal);
 		animalServiceRemote.save(animal2);
 

@@ -23,9 +23,9 @@ public class TestAddAnnonce {
 		AnnomceServiceRemote annomceServiceRemote = (AnnomceServiceRemote) context
 				.lookup("animal-care-ear/animal-care-ejb/AnnomceService!services.AnnomceServiceRemote");
 
-		User user = userServicesRemote.find(2);
-		Animal animal = animalServiceRemote.find(1);
-		annomceServiceRemote.createAnnonce(user, animal, new Date(), new Date(), "chat mezien", "dari");
+		//User user = userServicesRemote.find(2);
+		//Animal animal = animalServiceRemote.find(1);
+		//annomceServiceRemote.createAnnonce(user, animal, new Date(), new Date(), "chat mezien", "dari");
 
 	}
 
