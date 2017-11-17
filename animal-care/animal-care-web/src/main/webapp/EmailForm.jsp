@@ -1,25 +1,27 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:ui="http://java.sun.com/jsf/facelets">
-<h:head>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
 
 	<title>TemplateToaster.com</title>
 	<link rel="stylesheet"
-		href="#{request.contextPath}/resources/js/bootstrap.css"
+		href="../resources/js/bootstrap.css"
 		type="text/css" media="screen" />
 	<link rel="stylesheet"
-		href="#{request.contextPath}/resources/js/style.css" type="text/css"
+		href="../resources/js/style.css" type="text/css"
 		media="screen" />
 	<script type="text/javascript"
-		src="#{request.contextPath}/resources/js/totop.js">
+		src="../resources/js/totop.js">
 </script>
-</h:head> 
-<h:body class="Home">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+
+<head> 
+
+<body class="Home">
 	<div class="totopshow">
 		<a href="#" class="back-to-top"><img alt="Back to Top"
-			src="#{request.contextPath}/resources/images/gototop0.png" /></a>
+			src="../resources/images/gototop0.png" /></a>
 	</div>
 	<header id="ttr_header">
 	<div id="ttr_header_inner">
@@ -61,7 +63,7 @@
 				</button>
 				<a href="http://www.templatetoaster.com" target="_self"> <img
 					class="ttr_menu_logo"
-					src="#{request.contextPath}/resources/images/menulogo.png" />
+					src="../resources/images/menulogo.png" />
 				</a>
 			</div>
 			<div class="menu-center collapse navbar-collapse">
@@ -96,51 +98,27 @@
 
 
 
-	<h:form>
-hi #{authentificationBean.user.name}
-			<h:dataTable value="#{annonceBean.annonces}" var="c" border="1">
-		<f:facet name="header">All adverts</f:facet>
-		<h:column>
-			<f:facet name="header">Name Animal</f:facet>
-			<h:outputText value="#{c.animal.name}" />
-		</h:column>
-		<h:column>
-			<f:facet name="header">Name User</f:facet>
-			<h:outputText value="#{c.user.name}" />
-		</h:column>
-		
-		<h:column>
-			<f:facet name="header">Start Date</f:facet>
-			<h:outputText value="#{c.startDate}" />
-		</h:column>
-		<h:column>
-			<f:facet name="header">End  Date</f:facet>
-			<h:outputText value="#{c.endDate}" />
-		</h:column>
-		
-		<h:column>
-			<f:facet name="header"> Descritpion </f:facet>
-			<h:outputText value="#{c.description}" />
-		</h:column>
-		
-		<h:column>
-			<f:facet name="header"> Place </f:facet>
-			<h:outputText value="#{c.place}" />
-		</h:column>
-		
-		
-		
-		<h:column>
-			<f:facet name="header">action</f:facet>
-				<h:commandLink action="/pages/info?faces-redirect=true"
-			value="Confirm" />
-		</h:column>
-	</h:dataTable>
-	<h:form>
-		<h:commandButton value="new" action="#{annonceBean.doNew()}" />
-	</h:form>
-</h:form>
-
+    <form action="EmailSendingServlet" method="post">
+        <table border="0" width="35%" align="center">
+            <caption><h2>Send New E-mail</h2></caption>
+            <tr>
+                <td width="50%">Recipient address </td>
+                <td><input type="text" name="recipient" size="50"/></td>
+            </tr>
+            <tr>
+                <td>Subject </td>
+                <td><input type="text" name="subject" size="50"/></td>
+            </tr>
+            <tr>
+                <td>Content </td>
+                <td><textarea rows="10" cols="39" name="content"></textarea> </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center"><input type="submit" value="Send"/></td>
+            </tr>
+        </table>
+         
+    </form>
 
 <div style="height: 0px; width: 0px; overflow: hidden;"></div>
 	<footer id="ttr_footer">
@@ -362,8 +340,11 @@ s.parentNode.insertBefore(wf, s);
 })();
 </script>
 
-</h:body> 
+
+</body>
+
 
 
 
 </html>
+    

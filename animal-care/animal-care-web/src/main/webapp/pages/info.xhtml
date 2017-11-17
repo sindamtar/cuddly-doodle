@@ -99,7 +99,7 @@
 	<h:form>
 hi #{authentificationBean.user.name}
 			<h:dataTable value="#{annonceBean.annonces}" var="c" border="1">
-<!-- 		<f:facet name="header">All adverts</f:facet> -->
+
 		<h:column>
 			<f:facet name="header">Name Owner of Animal</f:facet>
 			<h:outputText value="#{c.user.name}" />
@@ -113,14 +113,12 @@ hi #{authentificationBean.user.name}
 			<f:facet name="header">Phone Number Owner of Animal</f:facet>
 			<h:outputText value="#{c.user.num}" />
 		</h:column>
-<!-- 		<h:column> -->
-<!-- 			<f:facet name="header">Name User</f:facet> -->
-<!-- 			<h:outputText value="#{c.user.name}" /> -->
-<!-- 		</h:column> -->
 		
 		
-		
-		<h:commandButton value="Send Mail TO the Owner"  />
+		<h:column>
+			<h:commandButton value="Send Mail TO the Owner" action="/EmailForm.jsp" />
+		</h:column>
+	
 		
 	</h:dataTable>
 	
