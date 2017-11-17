@@ -27,6 +27,28 @@ public class User implements Serializable {
 	private String name;
 	private String login;
 	private String password;
+	private String mail;
+	private long num;
+
+	public String getMail() {
+		return mail;
+	}
+
+	public void setMail(String mail) {
+		this.mail = mail;
+	}
+
+	public long getNum() {
+		return num;
+	}
+
+	public void setNum(long num) {
+		this.num = num;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
 
 	@OneToMany(mappedBy = "user")
 	private List<Animal> animals;
@@ -39,12 +61,16 @@ public class User implements Serializable {
 		super();
 	}
 
-	public User(String name, String login, String password) {
+	public User(String name, String login, String password, String mail, long num) {
+		
+
 		this.name = name;
 		this.login = login;
 		this.password = password;
+		this.mail = mail;
+		this.num = num;
+	
 	}
-
 	public int getId() {
 		return this.id;
 	}

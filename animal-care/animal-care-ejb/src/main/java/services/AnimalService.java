@@ -10,6 +10,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
 import persistence.Animal;
+import persistence.Annonce;
 import persistence.User;
 import utilities.GenericDAO;
 
@@ -30,9 +31,7 @@ public class AnimalService extends GenericDAO<Animal> implements AnimalServiceRe
 
 	@Override
 	public List<Animal> findAnimalsByMember(User user) {
-		
-		
-		
+
 		List<Animal> found = null;
 		String jpql = "select u from Animal u where u.user=:user";
 		TypedQuery<Animal> query = entityManager.createQuery(jpql, Animal.class);
@@ -43,6 +42,58 @@ public class AnimalService extends GenericDAO<Animal> implements AnimalServiceRe
 			Logger.getLogger(AnimalService.class.getName()).log(Level.WARNING, "no such user=" + user);
 		}
 		return found;
+	}
+
+	@Override
+	public List<Annonce> findAnnonceByAnimal(Animal animal) {
+
+		List<Annonce> found = null;
+		String jpql = "select u from Annonce u where u.animal=:animal";
+		TypedQuery<Annonce> query = entityManager.createQuery(jpql, Annonce.class);
+		query.setParameter("user", animal);
+		try {
+			found = query.getResultList();
+		} catch (Exception ex) {
+			Logger.getLogger(AnnomceService.class.getName()).log(Level.WARNING, "no such animal=" + animal);
+		}
+		return found;
+
+	}
+
+	@Override
+	public Animal findAnimalByName(String name) {
+		Animal found = null;
+		String jpql = "select u from Animal u where u.name=:name";
+		TypedQuery<Animal> query = entityManager.createQuery(jpql, Animal.class);
+		query.setParameter("name", name);
+		try {
+			found = query.getSingleResult();
+		} catch (Exception ex) {
+			Logger.getLogger(AnnomceService.class.getName()).log(Level.WARNING, "no such animal=" + name);
+		}
+		return found;
+	}
+
+	@Override
+	public Animal createAnimal(Animal animal) 
+	
+	{
+	   // animal.getUser().getId();
+		entityManager.persist(animal);
+		return animal;
+	}
+
+	@Override
+	public void saveAnimal(Animal animal) {
+		entityManager.merge(animal);
+		
+		
+	}
+
+	@Override
+	public void removeAnimal(Animal animal) {
+		entityManager.remove(entityManager.merge(animal));
+		
 	}
 
 }

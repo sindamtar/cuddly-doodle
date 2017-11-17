@@ -19,10 +19,11 @@ public class Visitor extends User implements Serializable {
 		super();
 	}
 
-	public Visitor(String name, String login, String password, String cardId) {
-		super(name, login, password);
-		this.cardId = cardId;
+	public Visitor( String name, String login, String password, String mail, long num, String cardId) {
+		super(name, login, password, mail, num);
+		this.cardId=cardId;
 	}
+
 
 	public String getCardId() {
 		return this.cardId;

@@ -22,11 +22,11 @@ public class TestAddUsers {
 		AnnomceServiceRemote annomceServiceRemote = (AnnomceServiceRemote) context
 				.lookup("animal-care-ear/animal-care-ejb/AnnomceService!services.AnnomceServiceRemote");
 
-		Admin admin = new Admin("daly", "d", "d", 123);
+		Admin admin = new Admin("daly", "d", "d","Daly@esprit.tn",2222,123);
 
-		Visitor visitor = new Visitor("synda", "s", "s", "level 1");
+		Visitor visitor = new Visitor("synda", "s", "s"," sinda.mtar@esprit.tn",12,"12");
 
-		Member member = new Member("yasmine", "y", "y", "VIP");
+		Member member = new Member("yasmine", "y", "y","yassmine@esprit.tn",3333, "VIP");
 
 		userServicesRemote.save(admin);
 		userServicesRemote.save(visitor);

@@ -22,14 +22,20 @@ public class TestAddAnimals {
 				.lookup("animal-care-ear/animal-care-ejb/AnnomceService!services.AnnomceServiceRemote");
 		User user = userServicesRemote.findUserByLogin("sindam");
 		Animal animal = new Animal();
-		animal.setId(1);
+		animal.setId(5);
 		animal.setName("lara");
 		animal.setUser(user);
+		animal.setBreed("sss");
+		animal.setAge(1);
+		animal.setType("perg");
 
 		Animal animal2 = new Animal();
-		animal2.setId(2);
+		animal2.setId(6);
 		animal2.setName("diego");
 		animal2.setUser(user);
+		animal2.setBreed("sss");
+		animal2.setAge(1);
+		animal2.setType("perg");
 
 		animalServiceRemote.save(animal);
 		animalServiceRemote.save(animal2);

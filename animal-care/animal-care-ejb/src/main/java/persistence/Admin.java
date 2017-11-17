@@ -15,9 +15,12 @@ public class Admin extends User implements Serializable {
 	public Admin() {
 	}
 
-	public Admin(String name, String login, String password, int adminLevel) {
-		super(name, login, password);
-		this.adminLevel = adminLevel;
+	
+	
+	
+	public Admin(String name, String login, String password, String mail, long num, int adminLevel) {
+		super(name, login, password, mail, num);
+		this.adminLevel=adminLevel;
 	}
 
 	@Column(name = "level")

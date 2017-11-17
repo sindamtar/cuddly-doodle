@@ -19,10 +19,14 @@ public class Member extends User implements Serializable {
 		super();
 	}
 
-	public Member(String name, String login, String password, String typeOf) {
-		super(name, login, password);
-		this.typeOf = typeOf;
+	
+
+	public Member(String name, String login, String password, String mail, long num, String typeOf) {
+		super(name, login, password, mail, num);
+		this.typeOf=typeOf;
 	}
+
+
 
 	public String getTypeOf() {
 		return this.typeOf;

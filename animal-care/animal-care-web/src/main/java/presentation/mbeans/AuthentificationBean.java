@@ -1,8 +1,12 @@
 package presentation.mbeans;
 
+import java.io.IOException;
+
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.ExternalContext;
+import javax.faces.context.FacesContext;
 
 import persistence.Admin;
 import persistence.Member;
@@ -23,17 +27,23 @@ public class AuthentificationBean {
 	private boolean loggedAsMember = false;
 
 	public String doLogin() {
+		
+	
+		System.err.println("sdjsdjujdsbds");
+		
 		String navto = "";
 		User found = userServiceLocal.authenticate(user.getLogin(), user.getPassword());
 		if (found != null) {
 			user = found;
 			if (found instanceof Admin) {
 				loggedAsAdmin = true;
-				navto = "/pages/adminHome?faces-redirect=true";
+				navto = "/pages/listAnnonce?faces-redirect=true";
 			}
 			if (found instanceof Member) {
 				loggedAsMember = true;
-				navto = "/pages/memberHome?faces-redirect=true";
+				navto = "/pages/listAnnonce?faces-redirect=true";
+				
+				
 
 			} else {
 				setLoggedAsVisitor(true);
@@ -46,7 +56,7 @@ public class AuthentificationBean {
 
 	public String doLogout() {
 		user = new User();
-		return "/welcome?faces-redirect=true";
+		return "/layout?faces-redirect=true";
 	}
 
 	public User getUser() {
