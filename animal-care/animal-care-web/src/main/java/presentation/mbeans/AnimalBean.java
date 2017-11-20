@@ -7,6 +7,7 @@ import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
+import javax.faces.bean.SessionScoped;
 import javax.faces.bean.ViewScoped;
 
 import persistence.Animal;
@@ -14,7 +15,7 @@ import persistence.Annonce;
 import services.AnimalServiceLocal;
 
 @ManagedBean
-@ViewScoped
+@SessionScoped
 public class AnimalBean {
 
 	private Animal animal = new Animal();
@@ -33,37 +34,51 @@ public class AnimalBean {
 	@PostConstruct
 	public void init() {
 		animals = animalServiceLocal.findAll();
-		animalsBYUser = animalServiceLocal.findAnimalsByMember(authentificationBean.getUser());
+	   animalsBYUser = animalServiceLocal.findAnimalsByMember(authentificationBean.getUser());
      // animal=animalServiceLocal.createAnimal(animal);
     		 
 	}
 
 	
-	public void addAnimal() {
-
-		animalServiceLocal.createAnimal(animal);
+	public String addAnimal() {
+		
         
-			
+		animalServiceLocal.create(animal,authentificationBean.getUser());
+        
+			return "/pages/listanimal?faces-redirect=true";
 		
 	}
 	
-	public void deleteAnimal() {
+	public String deleteAnimal(Animal ann) {
 
-		animalServiceLocal.delete(animal);
-
-			
+		
+		animalServiceLocal.removeA(ann, authentificationBean.getUser());
+		
+		
+		return "/pages/listanimal?faces-redirect=true";	
+		
 		
 	}
 
 	public void AfficheAnimal() {
 
-		animalServiceLocal.saveAnimal(animal);
+		animalServiceLocal.save(animal);
 
 			
 		
 	}
 
+	
+	public String UpdateAnimal(){
+		animalServiceLocal.updateA(animal,authentificationBean.getUser());
+		return "/pages/listanimal?faces-redirect=true";
+	}
 
+	
+	public String NavigateUpdate(Animal c){
+		return "/pages/UpdateAnimal?faces-redirect=true";
+		
+	}
 	
 	
 	public List<Animal> getAnimals() {

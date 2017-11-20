@@ -1,5 +1,6 @@
 package services;
 
+import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -21,7 +22,7 @@ import utilities.GenericDAO;
 public class AnimalService extends GenericDAO<Animal> implements AnimalServiceRemote, AnimalServiceLocal {
 	@PersistenceContext
 	private EntityManager entityManager;
-
+   
 	/**
 	 * Default constructor.
 	 */
@@ -43,6 +44,18 @@ public class AnimalService extends GenericDAO<Animal> implements AnimalServiceRe
 		}
 		return found;
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 	@Override
 	public List<Annonce> findAnnonceByAnimal(Animal animal) {
@@ -75,25 +88,48 @@ public class AnimalService extends GenericDAO<Animal> implements AnimalServiceRe
 	}
 
 	@Override
-	public Animal createAnimal(Animal animal) 
+	public Animal create(Animal animal,User user) 
 	
 	{
-	   // animal.getUser().getId();
+	    
+	    animal.setUser(user);
 		entityManager.persist(animal);
 		return animal;
 	}
 
 	@Override
-	public void saveAnimal(Animal animal) {
+	public void save(Animal animal) {
 		entityManager.merge(animal);
 		
 		
 	}
 
 	@Override
-	public void removeAnimal(Animal animal) {
+	public void removeA(Animal animal,User user) {
+		
+		animal.setUser(user);
 		entityManager.remove(entityManager.merge(animal));
 		
 	}
+
+	@Override
+	public void updateA(Animal animal,User user) 
+	{
+		animal.setUser(user);
+		entityManager.merge(animal);
+		
+	}
+
+	@Override
+	public void remove(Animal animal) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
+	
+	
+
+
 
 }

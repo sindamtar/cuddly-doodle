@@ -5,6 +5,8 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -19,6 +21,7 @@ import javax.persistence.Table;
 public class Animal implements Serializable {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	@Column(unique = true)
 	private String name;
@@ -39,7 +42,7 @@ public class Animal implements Serializable {
 	}
 
 	public void setBreed(String breed) {
-		Breed = breed;
+		this.Breed = breed;
 	}
 
 	public int getAge() {
@@ -47,8 +50,19 @@ public class Animal implements Serializable {
 	}
 
 	public void setAge(int age) {
-		Age = age;
+		this.Age = age;
 	}
+	
+
+	public Animal(String name, String breed, int age, String type, User user) {
+		
+		this.name = name;
+		this.Breed = breed;
+		this.Age = age;
+		this.type = type;
+		this.user = user;
+	}
+
 
 	@ManyToOne
 	private User user;

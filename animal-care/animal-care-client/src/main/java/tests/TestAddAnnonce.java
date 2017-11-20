@@ -24,13 +24,13 @@ public class TestAddAnnonce {
 		AnnomceServiceRemote annomceServiceRemote = (AnnomceServiceRemote) context
 				.lookup("animal-care-ear/animal-care-ejb/AnnomceService!services.AnnomceServiceRemote");
 
-		User user = userServicesRemote.find(2);
-		Animal animal = animalServiceRemote.find(5);
-		User user3 = userServicesRemote.find(3);
-		Animal animal2 = animalServiceRemote.find(6);
+		User user = userServicesRemote.find(3);
+		Animal animal = animalServiceRemote.find(1);
+		//User user3 = userServicesRemote.find(3);
+		//Animal animal2 = animalServiceRemote.find(6);
 		annomceServiceRemote.createAnnonce(user, animal, new Date(), new Date(), "chat mezien", "dari");
-		annomceServiceRemote.createAnnonce(user3, animal, new Date(), new Date(), "chat ", "esprit");
-		annomceServiceRemote.createAnnonce(user3, animal2, new Date(), new Date(), "chien mezien", "tunis");
+	//	annomceServiceRemote.createAnnonce(user3, animal, new Date(), new Date(), "chat ", "esprit");
+		//annomceServiceRemote.createAnnonce(user3, animal2, new Date(), new Date(), "chien mezien", "tunis");
        
 	}
 

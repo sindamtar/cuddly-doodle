@@ -37,21 +37,29 @@ public class AuthentificationBean {
 			user = found;
 			if (found instanceof Admin) {
 				loggedAsAdmin = true;
-				navto = "/pages/listAnnonce?faces-redirect=true";
+				navto = "/layout1?faces-redirect=true";
 			}
 			if (found instanceof Member) {
 				loggedAsMember = true;
-				navto = "/pages/listAnnonce?faces-redirect=true";
+				navto = "/layout1?faces-redirect=true";
 				
 				
 
 			} else {
 				setLoggedAsVisitor(true);
-				navto = "/pages/visitorHome?faces-redirect=true";
+				navto = "/layout?faces-redirect=true";
 			}
 
 		}
 		return navto;
+	}
+
+	public UserServicesLocal getUserServiceLocal() {
+		return userServiceLocal;
+	}
+
+	public void setUserServiceLocal(UserServicesLocal userServiceLocal) {
+		this.userServiceLocal = userServiceLocal;
 	}
 
 	public String doLogout() {

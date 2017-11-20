@@ -5,7 +5,7 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 <h:head>
 
-	<title>TemplateToaster.com</title>
+	<title>AnimalsCaring.com</title>
 	<link rel="stylesheet"
 		href="#{request.contextPath}/resources/js/bootstrap.css"
 		type="text/css" media="screen" />
@@ -27,14 +27,14 @@
 		<div class="ttr_headershape01">
 			<div class="html_content">
 				<p>
-					<span style="font-size: 0.857em; color: rgba(243, 243, 243, 1);"><a href="http://localhost:18080/animal-care-web/login.jsf">Sign in</a></span>
+					<span style="font-size: 0.857em; color: rgba(243, 243, 243, 1);"><a href="http://localhost:18080/animal-care-web/layout.jsf">Sign out</a></span>
 				</p>
 			</div>
 		</div>
 		<div class="ttr_headershape02">
 			<div class="html_content">
 				<p>
-					<span style="font-size: 0.857em; color: rgba(243, 243, 243, 1);">yamma a7ayt smella</span>
+					<span style="font-size: 0.857em; color: rgba(243, 243, 243, 1);"></span>
 				</p>
 			</div>
 		</div>
@@ -64,20 +64,19 @@
 					src="#{request.contextPath}/resources/images/menulogo.png" />
 				</a>
 			</div>
-			<div class="menu-center collapse navbar-collapse">
+				<div class="menu-center collapse navbar-collapse">
 				<ul class="ttr_menu_items nav navbar-nav navbar-right">
 					<li class="ttr_menu_items_parent dropdown active"><a
-						href="home.html" class="ttr_menu_items_parent_link_active"><span
+												href="http://localhost:18080/animal-care-web/layout1.jsf" class="ttr_menu_items_parent_link_active"   ><span
 							class="menuchildicon"></span>Home</a>
 						<hr class="horiz_separator" /></li>
-					<li class="ttr_menu_items_parent dropdown"><a
-						href="http://localhost:18080/animal-care-web/pages/memberHome.jsf" class="ttr_menu_items_parent_link" ><span
-							class="menuchildicon"></span>Our Animals</a>
+					<li class="ttr_menu_items_parent dropdown">
+					<a class="ttr_menu_items_parent_link" href="http://localhost:18080/animal-care-web/pages/listanimal.jsf"><span
+							class="menuchildicon"></span> Our Animals</a>
 						<hr class="horiz_separator" /></li>
 					<li class="ttr_menu_items_parent dropdown"><a
-						href="services.html" class="ttr_menu_items_parent_link"><span
-							class="menuchildicon"></span>Services</a>
-						<hr class="horiz_separator" /></li>
+						href="http://localhost:18080/animal-care-web/pages/listAnnonce.jsf" class="ttr_menu_items_parent_link"><span
+							class="menuchildicon"></span>Our  Adverts </a>	<hr class="horiz_separator" /></li>
 					<li class="ttr_menu_items_parent dropdown"><a
 						href="training.html" class="ttr_menu_items_parent_link"><span
 							class="menuchildicon"></span>Training</a>
@@ -88,6 +87,7 @@
 						<hr class="horiz_separator" /></li>
 				</ul>
 			</div>
+		
 		</div>
 	</div>
 	</nav>
@@ -98,6 +98,14 @@
 
 	<h:form>
 hi #{authentificationBean.user.name}
+
+		 <h:inputText  value="#{annonceBean.place}" name="search" />
+
+             <h:commandButton action="#{annonceBean.searching()}" value="search" icon="ui-icon-disk">
+             <f:param name="place" value="#{annonceBean.place}"></f:param>
+             </h:commandButton>  
+
+
 			<h:dataTable value="#{annonceBean.annonces}" var="c" border="1">
 		<f:facet name="header">All adverts</f:facet>
 		<h:column>

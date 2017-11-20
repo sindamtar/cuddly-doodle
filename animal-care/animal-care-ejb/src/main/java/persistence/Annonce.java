@@ -26,6 +26,62 @@ public class Annonce implements Serializable {
 	private Date endDate;
 	private String place;
 	private String description;
+	private int closed;
+	private int statut;
+
+	public void setStatut(int statut) {
+		this.statut =statut;
+	}
+
+	
+	public Annonce(Date startDate, Date endDate, String place, String description, int closed, int statut, User user,
+			Animal animal) {
+		super();
+		this.startDate = startDate;
+		this.endDate = endDate;
+		this.place = place;
+		this.description = description;
+		this.closed = closed;
+		this.statut = statut;
+		this.user = user;
+		this.animal = animal;
+		this.annonceId = new AnnonceId(user.getId(), animal.getId());
+	}
+
+	public Annonce(Date startDate, Date endDate, String place, String description, int closed, User user,
+			Animal animal) {
+		super();
+		this.startDate = startDate;
+		this.endDate = endDate;
+		this.place = place;
+		this.description = description;
+		this.closed = closed;
+		this.user = user;
+		this.animal = animal;
+		this.annonceId = new AnnonceId(user.getId(), animal.getId());
+	}
+
+
+	public AnnonceId getAnnonceId() {
+		return annonceId;
+	}
+
+	public void setAnnonceId(AnnonceId annonceId) {
+		this.annonceId = annonceId;
+	}
+
+	public int getStatut() {
+		return statut;
+	}
+
+
+	public int getClosed() {
+		return closed;
+	}
+
+	public void setClosed(int closed) {
+		this.closed = closed;
+	}
 
 	@ManyToOne
 	@JoinColumn(name = "idUser", referencedColumnName = "id", insertable = false, updatable = false)

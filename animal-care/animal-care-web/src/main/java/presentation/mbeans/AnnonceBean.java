@@ -8,12 +8,15 @@ import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
+import javax.faces.bean.SessionScoped;
 import javax.faces.bean.ViewScoped;
 
 import persistence.Animal;
 import persistence.Annonce;
 import persistence.User;
+import services.AnimalService;
 import services.AnimalServiceLocal;
+import services.AnnomceService;
 import services.AnnomceServiceLocal;
 import services.UserServicesLocal;
 
@@ -53,7 +56,22 @@ public class AnnonceBean {
 		this.animal1 = animal1;
 	}
 
-	private Annonce annonce = new Annonce();
+	private Annonce an;
+	public Annonce getAn() {
+		return an;
+	}
+
+	public void setAn(Annonce an) {
+		this.an = an;
+	}
+	private Animal animal = new Animal();
+    private User user = new User();
+    
+
+private Annonce annonces = new Annonce( new Date(),  new Date(),  "dari",  "chat mezien",2,0, user,
+			 animal);
+
+	private Annonce annonce;
 	private List<Annonce> Annonces = new ArrayList<>();
 	private List<Annonce> Annonces1 = new ArrayList<>();
 	private List<Annonce> AnnoncesBYUser = new ArrayList<>();
@@ -61,14 +79,36 @@ public class AnnonceBean {
 	@EJB
 	private AnnomceServiceLocal AnnomceServiceLocal;
 	private UserServicesLocal userServicesLocal;
+	private String place;
+	private List<Annonce> annoncess;
+	
+	private List<Annonce> alltraining;
+	public String getPlace() {
+		return place;
+	}
+
+	public void setPlace(String place) {
+		this.place = place;
+	}
+
+	public List<Annonce> getAnnoncess() {
+		return annoncess;
+	}
+
+	public void setAnnoncess(List<Annonce> annoncess) {
+		this.annoncess = annoncess;
+	}
+
+	public void setAnnonces(Annonce annonces) {
+		this.annonces = annonces;
+	}
+
 	@EJB
 	private AnimalServiceLocal animalServiceLocal;
 	@ManagedProperty(value = "#{animalBean}")
 	private AnimalBean animalBean;
 	private Animal animalSelected = new Animal();
-	private Animal animal = new Animal();
-     private User user = new User();
-     
+
      
 
 	
@@ -107,9 +147,24 @@ public class AnnonceBean {
 		
 	}
 
-	public String doNew() {
-		return "AddAnnonce?faces-redirect=true";
+	
+	public String confirmed(){
+		
+		AnnomceServiceLocal.NbrOfClosed(annonce);
+		return "/pages/listConfirmer?faces-redirect=true";
 	}
+	
+
+	public String doNew() {
+		return "/pages/addAnnonce?faces-redirect=true"; 
+	}
+	
+	
+	
+	public String doNewl() {
+		return "/pages/listAnnonce?faces-redirect=true"; 
+	}
+	
 
 	@ManagedProperty(value = "#{authentificationBean}")
 	private AuthentificationBean authentificationBean;
@@ -127,12 +182,14 @@ public class AnnonceBean {
 
 	Annonces = AnnomceServiceLocal.findAnnonceByMember(authentificationBean.getUser());
 
-		
+	
 	
 	
 		
 	}
 
+	
+	
 	public AnnomceServiceLocal getAnnomceServiceLocal() {
 		return AnnomceServiceLocal;
 	}
@@ -204,5 +261,58 @@ public class AnnonceBean {
 	public void setAnnonce(Annonce annonce) {
 		this.annonce = annonce;
 	}
+	
+	public String conf23(Annonce c){
+		
+		return "/pages/conf?faces-redirect=true";
+	}
+	
+	
+	
+	public List<Annonce> searching ()
+	{
+          		
+		annoncess=AnnomceServiceLocal.searching(place);
+		
+		return annoncess;
+			
+	
+			
+		
+		
+		}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	public List<Annonce> rechercherAllannoncesByDate() {
+		List<Annonce> lstTrainingByDate = AnnomceServiceLocal.rechercherAllannoncesByDate(an.getStartDate());
+		if (lstTrainingByDate.isEmpty()) {
+			return null;
+		} else {
+			return lstTrainingByDate;
+		}
+
+	}
+		
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 }

@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+
+<head></head>
+<body>
+		<h:form role="form">
+
+			<h:outputText value="Date" />
+			<p:calendar id="startDate"
+				value="#{annonceBean.annonce.startDate}" />
+
+			<h:commandButton
+				action="#{annonceBean.rechercherAllannoncesByDate()}"
+				value="Rechercher" />
+
+			<h:dataTable value="#{annonceBean.rechercherAllannoncesByDate()}"
+				var="training" border="2">
+				<p:column headerText="subject">
+					<h:outputText value="#{annonceBean.annonce.animal.name}" />
+				</p:column>
+
+				<p:column headerText="city">
+					<h:outputText value="#{annonceBean.annonce.user.name}" />
+				</p:column>
+
+
+
+<p:column headerText="city">
+					<h:outputText value="#{annonceBean.annonce.startDate}" />
+				</p:column>
+				
+				
+				
+<p:column headerText="city">
+					<h:outputText value="#{annonceBean.annonce.endDate}" />
+				</p:column>
+				
+<p:column headerText="city">
+					<h:outputText value="#{annonceBean.annonce.place}" />
+				</p:column>				
+				<p:column headerText="action">
+					<h:commandButton action="#{annonceBean.doNewl()}"
+						value="MyList" />
+				</p:column>
+
+<!-- 				<p:column headerText="action">  -->
+<!-- 				<h:commandButton --> -->
+<!-- 					<action="#{trainingBean.doViewlist(identityBean.user)}"   -->
+<!-- 						value="Participate" />  -->
+<!--  				</p:column>  -->
+
+			</h:dataTable>
+
+			<br></br>
+			<br></br>
+			<br></br>
+
+			<h:dataTable value="#{annonceBean.annonces}" var="training"
+				border="2">
+				<p:column headerText="subject">
+					<h:outputText value="#{annonceBean.annonce.animal.name}" />
+				</p:column>
+
+				<p:column headerText="city">
+					<h:outputText value="#{annonceBean.annonce.user.name}" />
+				</p:column>
+
+				
+	
+				<p:column headerText="action">
+					<h:commandButton action="#{annonceBean.doNewl()}"
+						value="MyList" />
+				</p:column>
+
+			</h:dataTable>
+		</h:form>
+</body>
+
+</html>

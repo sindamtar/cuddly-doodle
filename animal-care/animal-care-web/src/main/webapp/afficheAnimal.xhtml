@@ -1,8 +1,14 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+	
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+
 <h:head>
 
 	<title>TemplateToaster.com</title>
@@ -16,6 +22,7 @@
 		src="#{request.contextPath}/resources/js/totop.js">
 </script>
 </h:head> 
+
 <h:body class="Home">
 	<div class="totopshow">
 		<a href="#" class="back-to-top"><img alt="Back to Top"
@@ -93,52 +100,59 @@
 	</nav>
 
 
+	
 
 
+		<h:form>
 
-	<h:form>
+		<h:dataTable value="#{animalBean.animals}" var="a" border="2">
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="name" />
+				</f:facet>
+				<h:outputText value="#{a.name}" />
+					
+			</h:column>
+			
+				<h:column>
+				<f:facet name="header">
+					<h:outputText value="Breed" />
+				</f:facet>
+				<h:outputText value="#{a.breed}" />
+					
+			</h:column>
+			
+			
+			
+				<h:column>
+				<f:facet name="header">
+					<h:outputText value="Age" />
+				</f:facet>
+				<h:outputText value="#{a.age}" />
+					
+			</h:column>
+			
 
-			<h:dataTable value="#{annonceBean.annonces1}" var="c" border="1">
-		<f:facet name="header">All adverts</f:facet>
-		<h:column>
-			<f:facet name="header">Name Animal</f:facet>
-			<h:outputText value="#{c.animal.name}" />
-		</h:column>
-		<h:column>
-			<f:facet name="header">Name Owner</f:facet>
-			<h:outputText value="#{c.user.name}" />
-		</h:column>
+
+				<h:column>
+				<f:facet name="header">
+					<h:outputText value="Type" />
+				</f:facet>
+				<h:outputText value="#{a.type}" />
+					
+			</h:column>
+			
 		
-		<h:column>
-			<f:facet name="header">Start Date</f:facet>
-			<h:outputText value="#{c.startDate}" />
-		</h:column>
-		<h:column>
-			<f:facet name="header">End  Date</f:facet>
-			<h:outputText value="#{c.endDate}" />
-		</h:column>
+
+        
+		</h:dataTable>
 		
-		<h:column>
-			<f:facet name="header"> Descritpion </f:facet>
-			<h:outputText value="#{c.description}" />
-		</h:column>
-		
-		<h:column>
-			<f:facet name="header"> Place </f:facet>
-			<h:outputText value="#{c.place}" />
-		</h:column>
-		
-		
-		
-		
-	</h:dataTable>
-	<h:form>
-		<h:commandButton value="new" action="#{annonceBean.doNew()}" />
+
+
 	</h:form>
-</h:form>
 
 
-<div style="height: 0px; width: 0px; overflow: hidden;"></div>
+	<div style="height: 0px; width: 0px; overflow: hidden;"></div>
 	<footer id="ttr_footer">
 	<div class="ttr_footerHome_html_row0 row">
 		<div class="post_column col-lg-3 col-md-6 col-sm-6 col-xs-12">
@@ -362,4 +376,8 @@ s.parentNode.insertBefore(wf, s);
 
 
 
+
 </html>
+
+
+

@@ -1,27 +1,32 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
 
-	<title>AnimalsCaring.com</title>
+	
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+
+<h:head>
+
+	<title>animalsCaring.com</title>
 	<link rel="stylesheet"
-		href="../resources/js/bootstrap.css"
+		href="#{request.contextPath}/resources/js/bootstrap.css"
 		type="text/css" media="screen" />
 	<link rel="stylesheet"
-		href="../resources/js/style.css" type="text/css"
+		href="#{request.contextPath}/resources/js/style.css" type="text/css"
 		media="screen" />
 	<script type="text/javascript"
-		src="../resources/js/totop.js">
+		src="#{request.contextPath}/resources/js/totop.js">
 </script>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+</h:head> 
 
-<head> 
-
-<body class="Home">
+<h:body class="Home">
 	<div class="totopshow">
 		<a href="#" class="back-to-top"><img alt="Back to Top"
-			src="../resources/images/gototop0.png" /></a>
+			src="#{request.contextPath}/resources/images/gototop0.png" /></a>
 	</div>
 	<header id="ttr_header">
 	<div id="ttr_header_inner">
@@ -36,7 +41,7 @@
 		<div class="ttr_headershape02">
 			<div class="html_content">
 				<p>
-					<span style="font-size: 0.857em; color: rgba(243, 243, 243, 1);">yamma a7ayt smella</span>
+					<span style="font-size: 0.857em; color: rgba(243, 243, 243, 1);"></span>
 				</p>
 			</div>
 		</div>
@@ -63,23 +68,23 @@
 				</button>
 				<a href="http://www.templatetoaster.com" target="_self"> <img
 					class="ttr_menu_logo"
-					src="../resources/images/menulogo.png" />
+					src="#{request.contextPath}/resources/images/menulogo.png" />
 				</a>
 			</div>
-			<div class="menu-center collapse navbar-collapse">
+				<div class="menu-center collapse navbar-collapse">
 				<ul class="ttr_menu_items nav navbar-nav navbar-right">
 					<li class="ttr_menu_items_parent dropdown active"><a
 						href="http://localhost:18080/animal-care-web/layout.jsf" class="ttr_menu_items_parent_link_active"   ><span
 							class="menuchildicon"></span>Home</a>
 						<hr class="horiz_separator" /></li>
 					<li class="ttr_menu_items_parent dropdown">
-					<a class="ttr_menu_items_parent_link" href="http://localhost:18080/animal-care-web/pages/visitorHome.jsf"><span
+					<a class="ttr_menu_items_parent_link" href="http://localhost:18080/animal-care-web/afficheAnimal.jsf"><span
 							class="menuchildicon"></span> Our Animals</a>
-						<hr class="horiz_separator" /></li>
+						<hr class="horiz_separator" /></li> 
 					<li class="ttr_menu_items_parent dropdown"><a
 						href="http://localhost:18080/animal-care-web/pages/listConfirmer.jsf" class="ttr_menu_items_parent_link"><span
-							class="menuchildicon"></span>Our  Adverts </a>
-						<hr class="horiz_separator" /></li>
+							class="menuchildicon"></span>Our  Advert </a>
+					<hr class="horiz_separator" /></li>
 					<li class="ttr_menu_items_parent dropdown"><a
 						href="training.html" class="ttr_menu_items_parent_link"><span
 							class="menuchildicon"></span>Training</a>
@@ -90,36 +95,65 @@
 						<hr class="horiz_separator" /></li>
 				</ul>
 			</div>
-			</div>
+		
+		</div>
+	</div>
 	</nav>
 
 
+	
 
 
+		<h:form>
 
-    <form action="EmailSendingServlet" method="post">
-        <table border="0" width="35%" align="center">
-            <caption><h2>Send New E-mail</h2></caption>
-            <tr>
-                <td width="50%">Recipient address </td>
-                <td><input type="text" name="recipient" size="50"/></td>
-            </tr>
-            <tr>
-                <td>Subject </td>
-                <td><input type="text" name="subject" size="50"/></td>
-            </tr>
-            <tr>
-                <td>Content </td>
-                <td><textarea rows="10" cols="39" name="content"></textarea> </td>
-            </tr>
-            <tr>
-                <td colspan="2" align="center"><input type="submit" value="Send"/></td>
-            </tr>
-        </table>
-         
-    </form>
+		<h:dataTable value="#{animalBean.animals}" var="a" border="2">
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="name" />
+				</f:facet>
+				<h:outputText value="#{a.name}" />
+					
+			</h:column>
+			
+				<h:column>
+				<f:facet name="header">
+					<h:outputText value="Breed" />
+				</f:facet>
+				<h:outputText value="#{a.breed}" />
+					
+			</h:column>
+			
+			
+			
+				<h:column>
+				<f:facet name="header">
+					<h:outputText value="Age" />
+				</f:facet>
+				<h:outputText value="#{a.age}" />
+					
+			</h:column>
+			
 
-<div style="height: 0px; width: 0px; overflow: hidden;"></div>
+
+				<h:column>
+				<f:facet name="header">
+					<h:outputText value="Type" />
+				</f:facet>
+				<h:outputText value="#{a.type}" />
+					
+			</h:column>
+			
+		
+
+        
+		</h:dataTable>
+		
+
+
+	</h:form>
+
+
+	<div style="height: 0px; width: 0px; overflow: hidden;"></div>
 	<footer id="ttr_footer">
 	<div class="ttr_footerHome_html_row0 row">
 		<div class="post_column col-lg-3 col-md-6 col-sm-6 col-xs-12">
@@ -339,11 +373,12 @@ s.parentNode.insertBefore(wf, s);
 })();
 </script>
 
-
-</body>
+</h:body> 
 
 
 
 
 </html>
-    
+
+
+

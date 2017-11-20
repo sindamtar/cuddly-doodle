@@ -13,9 +13,14 @@ import utilities.IGenericDAO;
 public interface AnimalServiceLocal extends IGenericDAO<Animal> {
 	
 	
-	Animal createAnimal(Animal animal);
-	void saveAnimal(Animal animal);
-	void removeAnimal(Animal animal);
+	Animal create(Animal animal,User user);
+	
+
+	void updateA (Animal animal ,User user); 
+	
+	void save(Animal animal);
+	
+	void removeA(Animal animal,User user);
 	
 	List<Animal> findAnimalsByMember(User user);
 

@@ -16,6 +16,7 @@ import javax.transaction.Transactional;
 import persistence.Animal;
 import persistence.Annonce;
 import persistence.User;
+
 import utilities.GenericDAO;
 
 
@@ -39,9 +40,36 @@ public class AnnomceService extends GenericDAO<Annonce>  implements AnnomceServi
 			String place) {
 		Annonce annonce = new Annonce(startDate, endtDate, place, description, user, animal);
 
+		
+		
 		entityManager.persist(annonce);
 
 	}
+	
+	
+	
+	
+	
+	
+	@Override
+	public void editAnnonce(User user, Animal animal, Date startDate, Date endtDate, String description,
+			String place, int closed)
+	
+	{
+		
+		Annonce annonce = new Annonce(startDate, endtDate, place, description,closed, user, animal);
+		entityManager.merge(annonce);
+	    
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	private AnimalService AnimalServiceLocal;
 	private UserServicesLocal UserServicesLocal;
 
@@ -98,11 +126,88 @@ public class AnnomceService extends GenericDAO<Annonce>  implements AnnomceServi
 	
 	
 	
-
 	
 
 
 	
+	
+	
+	
+  public long nbrAnnonceByPlaces (String place){
+		
+		//return (int) em.createQuery("Select sum(c.nbrDownloads) from Cursus c where c.cathegory= :s").setParameter(1, cat).getSingleResult();	
+		System.out.println("ssssssssssssss");
+		long x= (long) entityManager.createQuery("Select sum(c.closed) from Annonce c where c.place= :s").setParameter("s", place).setFirstResult(0).setMaxResults(1).getSingleResult();	
+		System.out.println("ss"+x);
+		return x;
+		
+	}
+	
+	
+	
+	
+	
+	
+  @Override
+	public void NbrOfClosed(Annonce annonce) 
+  {
+	  
+	 // Annonce annonce = new Annonce(startDate, endtDate, place, description,closed, user, animal);
+		int Nb = annonce.getClosed();
+		int newNb = Nb+1;
+		annonce.setClosed(newNb);
+		
+		entityManager.merge(annonce);
+		
+	}
+	
+
+	@Override
+  public List<Annonce> searching(String place ){
+		
+		return  entityManager.createQuery("select p from Annonce p where p.place= :param1",Annonce.class).setParameter("param1", place).getResultList();
+		
+	}
+
+	@Override
+	public List<Annonce> getPlaces() {
+		 System.out.println("List Annonce");
+
+			return entityManager.createQuery("Select l from Annonce l",Annonce.class).getResultList();
+
+	}
+
+	@Override
+	public void UpdateLike(Annonce ct) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void UpdateDislike(Annonce s) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
+	
+	
+	
+
+	@Override
+	public List<Annonce> rechercherAllannoncesByDate(Date date) {
+		TypedQuery<Annonce> querry = entityManager.createQuery("Select t from Annonce t where t.startDate =:date",Annonce.class);
+		querry.setParameter("date", date);
+		return querry.getResultList();
+	}
+	
+	
+
+	
+	
+	
+	
+
 
 	
 }
