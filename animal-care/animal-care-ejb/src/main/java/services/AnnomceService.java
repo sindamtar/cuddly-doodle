@@ -1,7 +1,11 @@
 package services;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -11,7 +15,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
-import javax.transaction.Transactional;
+
 
 import persistence.Animal;
 import persistence.Annonce;
@@ -206,6 +210,97 @@ public class AnnomceService extends GenericDAO<Annonce>  implements AnnomceServi
 	
 	
 	
+	
+	
+	
+	
+	
+	
+	public Map<String, Long> count(){
+		Long q1 = (Long) entityManager.createQuery("Select count(*) from Animal pp").getSingleResult();
+		Long q2 = (Long) entityManager.createQuery("Select count(*) from User c").getSingleResult();
+		Long q3 = (Long) entityManager.createQuery("Select count(*) from Annonce c").getSingleResult();
+		Map<String, Long> res = new HashMap<>();
+		res.put("Animal", q1);
+		res.put("User", q2);
+		res.put("Annonce", q3);
+		return res;
+		
+	}
+	
+	@Override
+	public Number CountAnimals() {
+		Number q1 = (Number) entityManager.createQuery("Select count(*) from Animal pp").getSingleResult();
+		return q1;
+	}
+
+	@Override
+	public Number CountUsers() {
+		Number q1 = (Number) entityManager.createQuery("Select count(*) from User c").getSingleResult();
+		return q1;
+	}
+
+	@Override
+	public Number CountAnnonces() {
+		Number q1 = (Number) entityManager.createQuery("Select count(*) from Annonce c").getSingleResult();
+		return q1;
+	}
+
+	
+	
+	public Map<String,Long> getAnimalByTown(){
+		Map<String, Long> result= new HashMap<String, Long>();
+		String jpql = "SELECT DISTINCT place from Annonce";
+		Query query = entityManager.createQuery(jpql);
+		@SuppressWarnings("unchecked")
+		ArrayList<String> towns= (ArrayList<String>) query.getResultList();
+		
+		
+		
+		Iterator<String> it = towns.iterator();
+		while (it.hasNext()){
+			String place= it.next();
+			String jpql2= "SELECT Count(*) from Annonce u where u.place=:place";
+			Query q2 = entityManager.createQuery(jpql2);
+			q2.setParameter("place", place);
+			result.put(place, (Long)q2.getSingleResult());
+			
+		}
+		return result;
+	}
+
+	public EntityManager getEntityManager() {
+		return entityManager;
+	}
+
+	public void setEntityManager(EntityManager entityManager) {
+		this.entityManager = entityManager;
+	}
+
+	public AnimalService getAnimalServiceLocal() {
+		return AnimalServiceLocal;
+	}
+
+	public void setAnimalServiceLocal(AnimalService animalServiceLocal) {
+		AnimalServiceLocal = animalServiceLocal;
+	}
+
+	public UserServicesLocal getUserServicesLocal() {
+		return UserServicesLocal;
+	}
+
+	public void setUserServicesLocal(UserServicesLocal userServicesLocal) {
+		UserServicesLocal = userServicesLocal;
+	}
+	
+	
+
+	@Override
+	public Annonce chercherAnnoncebyPlace(String place) {
+		
+		return entityManager.find(Annonce.class, place);
+	}
+
 	
 
 

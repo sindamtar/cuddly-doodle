@@ -1,6 +1,7 @@
 package services;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.ejb.Local;
 
@@ -27,4 +28,7 @@ public interface AnimalServiceLocal extends IGenericDAO<Animal> {
 	List<Annonce> findAnnonceByAnimal(Animal animal);
 
 	Animal findAnimalByName(String name);
+	
+	
+	
 }

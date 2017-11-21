@@ -2,6 +2,7 @@ package services;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 import javax.ejb.Local;
 
@@ -29,5 +30,14 @@ public interface AnnomceServiceLocal extends IGenericDAO<Annonce>{
 	List<Annonce> rechercherAllannoncesByDate(Date date);
  
 	List<Annonce> searching(String place );
+
+	Number CountAnimals();
+
+	Number CountUsers();
+	
+	Number CountAnnonces();
+	
+ Map<String,Long> getAnimalByTown();
+	 Annonce chercherAnnoncebyPlace(String place);
 
 }

@@ -29,6 +29,10 @@ public interface AnnomceServiceRemote  extends IGenericDAO<Annonce> {
 	 void NbrOfClosed(Annonce annonce);
 	 
 	 List<Annonce> getPlaces();
+	Number CountAnimals();
+	Number CountUsers();
+	Number CountAnnonces();
+
 	
 	
 }

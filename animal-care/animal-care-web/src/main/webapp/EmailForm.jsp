@@ -1,27 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-
-	<title>AnimalsCaring.com</title>
+<title>AniamlsCaring.com</title>
 	<link rel="stylesheet"
-		href="../resources/js/bootstrap.css"
+		href="<%=request.getContextPath()%>/resources/js/bootstrap.css"
 		type="text/css" media="screen" />
 	<link rel="stylesheet"
-		href="../resources/js/style.css" type="text/css"
+		href="<%=request.getContextPath()%>/resources/js/style.css" type="text/css"
 		media="screen" />
 	<script type="text/javascript"
 		src="../resources/js/totop.js">
 </script>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
-<head> 
 
+</head>
 <body class="Home">
 	<div class="totopshow">
 		<a href="#" class="back-to-top"><img alt="Back to Top"
-			src="../resources/images/gototop0.png" /></a>
+			src="<%=request.getContextPath()%>/resources/images/gototop0.png" /></a>
 	</div>
 	<header id="ttr_header">
 	<div id="ttr_header_inner">
@@ -63,23 +60,23 @@
 				</button>
 				<a href="http://www.templatetoaster.com" target="_self"> <img
 					class="ttr_menu_logo"
-					src="../resources/images/menulogo.png" />
+					src="<%=request.getContextPath()%>/resources/images/menulogo.png" />
 				</a>
 			</div>
-			<div class="menu-center collapse navbar-collapse">
+				<div class="menu-center collapse navbar-collapse">
 				<ul class="ttr_menu_items nav navbar-nav navbar-right">
 					<li class="ttr_menu_items_parent dropdown active"><a
 						href="http://localhost:18080/animal-care-web/layout.jsf" class="ttr_menu_items_parent_link_active"   ><span
 							class="menuchildicon"></span>Home</a>
 						<hr class="horiz_separator" /></li>
 					<li class="ttr_menu_items_parent dropdown">
-					<a class="ttr_menu_items_parent_link" href="http://localhost:18080/animal-care-web/pages/visitorHome.jsf"><span
+					<a class="ttr_menu_items_parent_link" href="http://localhost:18080/animal-care-web/affAni.jsf"><span
 							class="menuchildicon"></span> Our Animals</a>
-						<hr class="horiz_separator" /></li>
+						<hr class="horiz_separator" /></li> 
 					<li class="ttr_menu_items_parent dropdown"><a
 						href="http://localhost:18080/animal-care-web/pages/listConfirmer.jsf" class="ttr_menu_items_parent_link"><span
 							class="menuchildicon"></span>Our  Adverts </a>
-						<hr class="horiz_separator" /></li>
+					<hr class="horiz_separator" /></li>
 					<li class="ttr_menu_items_parent dropdown"><a
 						href="training.html" class="ttr_menu_items_parent_link"><span
 							class="menuchildicon"></span>Training</a>
@@ -90,23 +87,25 @@
 						<hr class="horiz_separator" /></li>
 				</ul>
 			</div>
-			</div>
+		
+		</div>
+	</div>
 	</nav>
 
 
 
-
+   <column>
 
     <form action="EmailSendingServlet" method="post">
         <table border="0" width="35%" align="center">
             <caption><h2>Send New E-mail</h2></caption>
             <tr>
-                <td width="50%">Recipient address </td>
-                <td><input type="text" name="recipient" size="50"/></td>
+               
+                <td><input type="hidden" name="recipient" size="50" value="sinda.mtar@esprit.tn"/></td>
             </tr>
             <tr>
-                <td>Subject </td>
-                <td><input type="text" name="subject" size="50"/></td>
+                <td>Your Email Address </td>
+                <td><input type="text" name="subject" size="50" value="${authentificationBean.user.mail}"/></td>
             </tr>
             <tr>
                 <td>Content </td>
@@ -339,11 +338,17 @@ s.parentNode.insertBefore(wf, s);
 })();
 </script>
 
-
+</column>
 </body>
 
 
 
 
 </html>
-    
+
+
+
+
+
+
+

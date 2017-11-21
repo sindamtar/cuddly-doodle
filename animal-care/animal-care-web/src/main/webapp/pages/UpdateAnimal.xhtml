@@ -113,22 +113,22 @@
 		<h:panelGrid columns="2" bgcolor="#00bfff" border="2">
 		
 			<h:outputText value="Name" />
-			<h:inputText value="#{animalBean.animal.name}" />
+			<h:inputText value="#{animalBeans.animal.name}" />
 			
 			<h:outputText value="Breed" />
-			<h:inputText value="#{animalBean.animal.breed}" />
+			<h:inputText value="#{animalBeans.animal.breed}" />
 			
 			<h:outputText value="Age" />
-			<h:inputText value="#{animalBean.animal.age}" />
+			<h:inputText value="#{animalBeans.animal.age}" />
 			
 			<h:outputText value="Type" />
-			<h:inputText value="#{animalBean.animal.type}" />
+			<h:inputText value="#{animalBeans.animal.type}" />
 			
 			
 
 		</h:panelGrid>
 	
-<h:commandButton action="#{animalBean.UpdateAnimal()}" value="Update" />
+<h:commandButton action="#{animalBeans.UpdateAnimal()}" value="Update" />
 		
 		<div>
 		<h:commandLink action="/pages/listanimal?faces-redirect=true"

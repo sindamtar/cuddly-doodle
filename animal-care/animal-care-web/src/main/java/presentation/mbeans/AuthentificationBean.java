@@ -37,9 +37,9 @@ public class AuthentificationBean {
 			user = found;
 			if (found instanceof Admin) {
 				loggedAsAdmin = true;
-				navto = "/layout1?faces-redirect=true";
+				navto = "/AdminPages/layoutAdmin?faces-redirect=true";
 			}
-			if (found instanceof Member) {
+			else if (found instanceof Member) {
 				loggedAsMember = true;
 				navto = "/layout1?faces-redirect=true";
 				

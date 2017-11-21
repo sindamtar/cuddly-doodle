@@ -11,6 +11,8 @@ import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 import javax.faces.bean.ViewScoped;
 
+import org.primefaces.model.chart.PieChartModel;
+
 import persistence.Animal;
 import persistence.Annonce;
 import persistence.User;
@@ -79,7 +81,7 @@ private Annonce annonces = new Annonce( new Date(),  new Date(),  "dari",  "chat
 	@EJB
 	private AnnomceServiceLocal AnnomceServiceLocal;
 	private UserServicesLocal userServicesLocal;
-	private String place;
+	private String place ="";
 	private List<Annonce> annoncess;
 	
 	private List<Annonce> alltraining;
@@ -102,14 +104,15 @@ private Annonce annonces = new Annonce( new Date(),  new Date(),  "dari",  "chat
 	public void setAnnonces(Annonce annonces) {
 		this.annonces = annonces;
 	}
-
+     private PieChartModel pieModel1;
 	@EJB
 	private AnimalServiceLocal animalServiceLocal;
 	@ManagedProperty(value = "#{animalBean}")
 	private AnimalBean animalBean;
 	private Animal animalSelected = new Animal();
 
-     
+	
+	private AnnomceService ps;
 
 	
 	
@@ -131,7 +134,7 @@ private Annonce annonces = new Annonce( new Date(),  new Date(),  "dari",  "chat
 		this.animalBean = animalBean;
 	}
 
-	public void addAnnonce() {
+	public String addAnnonce() {
 
 		AnnomceServiceLocal.createAnnonce(authentificationBean.getUser(), animalSelected, annonce.getStartDate(),
 				annonce.getEndDate(), annonce.getDescription(), annonce.getPlace());
@@ -143,7 +146,7 @@ private Annonce annonces = new Annonce( new Date(),  new Date(),  "dari",  "chat
 //	AnnomceServiceLocal.createAnnonce(user1,animal1,new Date(),
 //		 new Date(),"yhdhdsd", "esprit");
 
-			
+			return "/pages/listAnnonce?faces-redirect=true";
 		
 	}
 
@@ -151,7 +154,8 @@ private Annonce annonces = new Annonce( new Date(),  new Date(),  "dari",  "chat
 	public String confirmed(){
 		
 		AnnomceServiceLocal.NbrOfClosed(annonce);
-		return "/pages/listConfirmer?faces-redirect=true";
+		
+		return "/EmailForm.jsf?faces-redirect=true";
 	}
 	
 
@@ -180,16 +184,79 @@ private Annonce annonces = new Annonce( new Date(),  new Date(),  "dari",  "chat
 		
 	//	animal = animalServiceLocal.findAnimalsByMember(user.getId());
 
-	Annonces = AnnomceServiceLocal.findAnnonceByMember(authentificationBean.getUser());
+	//Annonces = AnnomceServiceLocal.findAnnonceByMember(authentificationBean.getUser());
 
-	
-	
+
+	//createPieModels();
 	
 		
 	}
+	
+		
+	
+	public List <Annonce> getannoncesByMenmber(){
+		
+		if(place.equals(""))
+		{
+		Annonces = AnnomceServiceLocal.findAnnonceByMember(authentificationBean.getUser());
+		}
+		else
+		{
+			Annonces=AnnomceServiceLocal.searching(place);
+		}
+		return Annonces;
+	}
+	
+	
+	
+	private void createPieModels() {
+        createPieModel1();
+       
+    }
+	private void createPieModel1() {
+        pieModel1 = new PieChartModel();
+        Number a = ps.CountAnimals();
+        Number b = ps.CountAnnonces();
+        Number c = ps.CountUsers();
+        pieModel1.set("Animal", a);
+        pieModel1.set("Annonce", b );
+        pieModel1.set("User", c);
+        
+         
+        pieModel1.setTitle("Users Participation");
+        pieModel1.setLegendPosition("w");
+    }
+	
 
+	public String NavigateToStat(){
+		ps.count();
+		return "/pages/statPage?faces-redirect=true";	
+	}
 	
-	
+	public List<Annonce> getAlltraining() {
+		return alltraining;
+	}
+
+	public void setAlltraining(List<Annonce> alltraining) {
+		this.alltraining = alltraining;
+	}
+
+	public PieChartModel getPieModel1() {
+		return pieModel1;
+	}
+
+	public void setPieModel1(PieChartModel pieModel1) {
+		this.pieModel1 = pieModel1;
+	}
+
+	public AnnomceService getPs() {
+		return ps;
+	}
+
+	public void setPs(AnnomceService ps) {
+		this.ps = ps;
+	}
+
 	public AnnomceServiceLocal getAnnomceServiceLocal() {
 		return AnnomceServiceLocal;
 	}
@@ -271,7 +338,7 @@ private Annonce annonces = new Annonce( new Date(),  new Date(),  "dari",  "chat
 	
 	public List<Annonce> searching ()
 	{
-          		
+          		System.out.println(place);
 		annoncess=AnnomceServiceLocal.searching(place);
 		
 		return annoncess;
@@ -305,8 +372,17 @@ private Annonce annonces = new Annonce( new Date(),  new Date(),  "dari",  "chat
 	}
 		
 	
-	
-	
+//	public String quitter() {
+//		
+//		List <Annonce> ann= AnnomceServiceLocal.findAnnonceByMember(authentificationBean.getUser());
+//		
+//		List <Animal> favory = animalServiceLocal.findAnimalsByMember(authentificationBean.getUser());
+//		
+//		animalServiceLocal.delete(animal);
+//
+//		return "Detail?selected=" + selectedOffer1.getIdOffer() + "faces-redirect=true";
+//	}
+//	
 	
 	
 	

@@ -15,8 +15,8 @@ import persistence.Annonce;
 import services.AnimalServiceLocal;
 
 @ManagedBean
-@ViewScoped
-public class AnimalBean {
+@SessionScoped
+public class AnimalBeans {
 
 	private Animal animal = new Animal();
 	private Animal animalSelected = new Animal();

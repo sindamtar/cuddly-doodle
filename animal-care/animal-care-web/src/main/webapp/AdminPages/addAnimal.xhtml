@@ -79,7 +79,8 @@
 						<hr class="horiz_separator" /></li>
 					<li class="ttr_menu_items_parent dropdown"><a
 						href="http://localhost:18080/animal-care-web/pages/listAnnonce.jsf" class="ttr_menu_items_parent_link"><span
-							class="menuchildicon"></span>Our  Adverts </a>	<hr class="horiz_separator" /></li>
+							class="menuchildicon"></span>Our  Adverts </a>
+									<hr class="horiz_separator" /></li>
 					<li class="ttr_menu_items_parent dropdown"><a
 						href="training.html" class="ttr_menu_items_parent_link"><span
 							class="menuchildicon"></span>Training</a>
@@ -100,46 +101,44 @@
    <h:column>
    <a>Bonjour ! #{authentificationBean.user.name}</a>
    </h:column>
-	<h:form id="form">
+
+
+
+
+
+
+	<h:form>
+ 
 
 		<h:panelGrid columns="2" bgcolor="#00bfff" border="2">
-			<h:outputText value="animal" />
+		
+			<h:outputText value="Name" />
+			<h:inputText value="#{animalBean.animal.name}" />
 			
-			<h:selectOneMenu value="#{annonceBean.animalSelected}" converter="ac">
-				<f:selectItem itemLabel="plesse select" />
-				<f:selectItems value="#{animalBean.animalsBYUser}" var="a"
-					itemLabel="#{a.name}" itemValue="#{a.name}"></f:selectItems>
-			</h:selectOneMenu>
+			<h:outputText value="Breed" />
+			<h:inputText value="#{animalBean.animal.breed}" />
 			
-			<h:outputText value="description" />
-			<h:inputText value="#{annonceBean.annonce.description}" />
+			<h:outputText value="Age" />
+			<h:inputText value="#{animalBean.animal.age}" />
+			
+			<h:outputText value="Type" />
+			<h:inputText value="#{animalBean.animal.type}" />
 			
 			
-			<h:outputText value="Date Start" />
-			<h:inputText id = "dateInput"  value="#{annonceBean.annonce.startDate}" 
-            label = "Date" >
-            <f:convertDateTime pattern = "dd-mm-yyyy" />
-             </h:inputText>
-           
-         
-			<h:outputText value="Date End" >
-			
-			  
-			</h:outputText>
-			<h:inputText value="#{annonceBean.annonce.endDate}" >
-			<f:convertDateTime pattern = "dd-mm-yyyy" />
-			</h:inputText>
-			<h:outputText value="Place" />
-			<h:inputText value="#{annonceBean.annonce.place}" />
-
-
 
 		</h:panelGrid>
-		
-<h:commandButton action="#{annonceBean.addAnnonce()}" value="ADD" />
-		
 	
-</h:form>
+<h:commandButton action="#{animalBean.addAnimal()}" value="ADD" />
+		
+		<div>
+		<h:commandLink action="/pages/listAnnonce?faces-redirect=true"
+			value="ListAnnonce" />
+		</div>
+	</h:form>
+
+
+
+
 
 <div style="height: 0px; width: 0px; overflow: hidden;"></div>
 	<footer id="ttr_footer">

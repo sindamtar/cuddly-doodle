@@ -26,13 +26,9 @@ public class Testadd {
 				.lookup("animal-care-ear/animal-care-ejb/AnnomceService!services.AnnomceServiceRemote");
 		
 		
-		User user = userServicesRemote.find(3);
-		Animal animal = animalServiceRemote.find(1);
- 
-		Annonce annonce = new Annonce( new Date(),  new Date(),  "dari",  "chat mezien",4,0,  user,
-				 animal);
-	
- //annomceServiceRemote.NbrOfClosed(annonce);
+Number a = annomceServiceRemote.CountUsers();
+System.out.println(a);
+
 
 	}
 

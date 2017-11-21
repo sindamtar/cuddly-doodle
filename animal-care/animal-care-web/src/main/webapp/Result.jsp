@@ -1,28 +1,24 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:ui="http://java.sun.com/jsf/facelets">
-
-
-
-<h:head>
-
-	<title>AnimalsCaring.com</title>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<html>
+<head>
+<title>AniamlsCaring.com</title>
 	<link rel="stylesheet"
-		href="#{request.contextPath}/resources/js/bootstrap.css"
+		href="<%=request.getContextPath()%>/resources/js/bootstrap.css"
 		type="text/css" media="screen" />
 	<link rel="stylesheet"
-		href="#{request.contextPath}/resources/js/style.css" type="text/css"
+		href="<%=request.getContextPath()%>/resources/js/style.css" type="text/css"
 		media="screen" />
 	<script type="text/javascript"
-		src="#{request.contextPath}/resources/js/totop.js">
+		src="../resources/js/totop.js">
 </script>
-</h:head>  
-<h:body class="Home">
+
+
+</head>
+<body class="Home">
 	<div class="totopshow">
 		<a href="#" class="back-to-top"><img alt="Back to Top"
-			src="#{request.contextPath}/resources/images/gototop0.png" /></a>
+			src="<%=request.getContextPath()%>/resources/images/gototop0.png" /></a>
 	</div>
 	<header id="ttr_header">
 	<div id="ttr_header_inner">
@@ -30,14 +26,14 @@
 		<div class="ttr_headershape01">
 			<div class="html_content">
 				<p>
-					<span style="font-size: 0.857em; color: rgba(243, 243, 243, 1);"><a href="http://localhost:18080/animal-care-web/layout.jsf">Sign out</a></span>
+					<span style="font-size: 0.857em; color: rgba(243, 243, 243, 1);"><a href="http://localhost:18080/animal-care-web/login.jsf">Sign in</a></span>
 				</p>
 			</div>
 		</div>
 		<div class="ttr_headershape02">
 			<div class="html_content">
 				<p>
-					<span style="font-size: 0.857em; color: rgba(243, 243, 243, 1);"></span>
+					<span style="font-size: 0.857em; color: rgba(243, 243, 243, 1);">yamma a7ayt smella</span>
 				</p>
 			</div>
 		</div>
@@ -64,22 +60,23 @@
 				</button>
 				<a href="http://www.templatetoaster.com" target="_self"> <img
 					class="ttr_menu_logo"
-					src="#{request.contextPath}/resources/images/menulogo.png" />
+					src="<%=request.getContextPath()%>/resources/images/menulogo.png" />
 				</a>
 			</div>
 				<div class="menu-center collapse navbar-collapse">
 				<ul class="ttr_menu_items nav navbar-nav navbar-right">
 					<li class="ttr_menu_items_parent dropdown active"><a
-												href="http://localhost:18080/animal-care-web/layout1.jsf" class="ttr_menu_items_parent_link_active"   ><span
+						href="http://localhost:18080/animal-care-web/layout.jsf" class="ttr_menu_items_parent_link_active"   ><span
 							class="menuchildicon"></span>Home</a>
 						<hr class="horiz_separator" /></li>
 					<li class="ttr_menu_items_parent dropdown">
-					<a class="ttr_menu_items_parent_link" href="http://localhost:18080/animal-care-web/pages/listanimal.jsf"><span
+					<a class="ttr_menu_items_parent_link" href="http://localhost:18080/animal-care-web/affAni.jsf"><span
 							class="menuchildicon"></span> Our Animals</a>
-						<hr class="horiz_separator" /></li>
+						<hr class="horiz_separator" /></li> 
 					<li class="ttr_menu_items_parent dropdown"><a
-						href="http://localhost:18080/animal-care-web/pages/listAnnonce.jsf" class="ttr_menu_items_parent_link"><span
-							class="menuchildicon"></span>Our  Adverts </a>	<hr class="horiz_separator" /></li>
+						href="http://localhost:18080/animal-care-web/pages/listConfirmer.jsf" class="ttr_menu_items_parent_link"><span
+							class="menuchildicon"></span>Our  Adverts </a>
+					<hr class="horiz_separator" /></li>
 					<li class="ttr_menu_items_parent dropdown"><a
 						href="training.html" class="ttr_menu_items_parent_link"><span
 							class="menuchildicon"></span>Training</a>
@@ -97,49 +94,12 @@
 
 
 
-   <h:column>
-   <a>Bonjour ! #{authentificationBean.user.name}</a>
-   </h:column>
-	<h:form id="form">
+   <column>
 
-		<h:panelGrid columns="2" bgcolor="#00bfff" border="2">
-			<h:outputText value="animal" />
-			
-			<h:selectOneMenu value="#{annonceBean.animalSelected}" converter="ac">
-				<f:selectItem itemLabel="plesse select" />
-				<f:selectItems value="#{animalBean.animalsBYUser}" var="a"
-					itemLabel="#{a.name}" itemValue="#{a.name}"></f:selectItems>
-			</h:selectOneMenu>
-			
-			<h:outputText value="description" />
-			<h:inputText value="#{annonceBean.annonce.description}" />
-			
-			
-			<h:outputText value="Date Start" />
-			<h:inputText id = "dateInput"  value="#{annonceBean.annonce.startDate}" 
-            label = "Date" >
-            <f:convertDateTime pattern = "dd-mm-yyyy" />
-             </h:inputText>
-           
-         
-			<h:outputText value="Date End" >
-			
-			  
-			</h:outputText>
-			<h:inputText value="#{annonceBean.annonce.endDate}" >
-			<f:convertDateTime pattern = "dd-mm-yyyy" />
-			</h:inputText>
-			<h:outputText value="Place" />
-			<h:inputText value="#{annonceBean.annonce.place}" />
-
-
-
-		</h:panelGrid>
-		
-<h:commandButton action="#{annonceBean.addAnnonce()}" value="ADD" />
-		
-	
-</h:form>
+    <center>
+        <h3><%=request.getAttribute("Message")%></h3>
+    </center>
+    
 
 <div style="height: 0px; width: 0px; overflow: hidden;"></div>
 	<footer id="ttr_footer">
@@ -361,7 +321,8 @@ s.parentNode.insertBefore(wf, s);
 })();
 </script>
 
-</h:body> 
+</column>
+</body>
 
 
 
@@ -369,3 +330,11 @@ s.parentNode.insertBefore(wf, s);
 </html>
 
 
+
+
+
+
+
+
+   
+ 
