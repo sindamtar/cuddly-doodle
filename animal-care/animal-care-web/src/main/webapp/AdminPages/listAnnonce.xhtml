@@ -1,8 +1,12 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:ui="http://java.sun.com/jsf/facelets">
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+
 <h:head>
 
 	<title>AnimalsCaring.com</title>
@@ -15,7 +19,10 @@
 	<script type="text/javascript"
 		src="#{request.contextPath}/resources/js/totop.js">
 </script>
-</h:head> 
+</h:head>
+
+
+
 <h:body class="Home">
 	<div class="totopshow">
 		<a href="#" class="back-to-top"><img alt="Back to Top"
@@ -27,8 +34,11 @@
 		<div class="ttr_headershape01">
 			<div class="html_content">
 				<p>
-					<span style="font-size: 0.857em; color: rgba(243, 243, 243, 1);"><a href="http://localhost:18080/animal-care-web/layout.jsf">Sign out</a></span>
+					<span style="font-size: 0.857em; color: rgba(243, 243, 243, 1);"><a
+						href="http://localhost:18080/animal-care-web/login.jsf">Sign
+							Out</a></span>
 				</p>
+
 			</div>
 		</div>
 		<div class="ttr_headershape02">
@@ -47,8 +57,8 @@
 			<div class="html_content">
 				<p>
 					<span
-						style="font-family: 'Arial'; font-weight: 700; font-size: 2.571em; color: rgba(78, 78, 78, 1);">DOG
-						CLUB</span>
+						style="font-family: 'Arial'; font-weight: 700; font-size: 2.571em; color: rgba(78, 78, 78, 1);">
+						ADMIN </span>
 				</p>
 			</div>
 		</div>
@@ -64,89 +74,538 @@
 					src="#{request.contextPath}/resources/images/menulogo.png" />
 				</a>
 			</div>
-				<div class="menu-center collapse navbar-collapse">
+			<div class="menu-center collapse navbar-collapse">
 				<ul class="ttr_menu_items nav navbar-nav navbar-right">
 					<li class="ttr_menu_items_parent dropdown active"><a
-												href="http://localhost:18080/animal-care-web/layout1.jsf" class="ttr_menu_items_parent_link_active"   ><span
+						href="http://localhost:18080/animal-care-web/AdminPages/layoutAdmin.jsf"
+						class="ttr_menu_items_parent_link_active"><span
 							class="menuchildicon"></span>Home</a>
 						<hr class="horiz_separator" /></li>
-					<li class="ttr_menu_items_parent dropdown">
-					<a class="ttr_menu_items_parent_link" href="http://localhost:18080/animal-care-web/pages/listanimal.jsf"><span
-							class="menuchildicon"></span> Our Animals</a>
+					<li class="ttr_menu_items_parent dropdown"><a
+						class="ttr_menu_items_parent_link"
+						href="http://localhost:18080/animal-care-web/AdminPages/listanimal.jsf"><span
+							class="menuchildicon"></span> manage Animals</a>
 						<hr class="horiz_separator" /></li>
 					<li class="ttr_menu_items_parent dropdown"><a
-						href="http://localhost:18080/animal-care-web/pages/listAnnonce.jsf" class="ttr_menu_items_parent_link"><span
-							class="menuchildicon"></span>Our  Adverts </a>	<hr class="horiz_separator" /></li>
-					<li class="ttr_menu_items_parent dropdown"><a
-						href="training.html" class="ttr_menu_items_parent_link"><span
-							class="menuchildicon"></span>Training</a>
+						href="http://localhost:18080/animal-care-web/AdminPages/listAnnonce.jsf"
+						class="ttr_menu_items_parent_link"><span class="menuchildicon"></span>
+							manage Adverts </a>
 						<hr class="horiz_separator" /></li>
 					<li class="ttr_menu_items_parent dropdown"><a
-						href="contact.html" class="ttr_menu_items_parent_link"><span
-							class="menuchildicon"></span>Contact</a>
+						href="http://localhost:18080/animal-care-web/AdminPages/sta.jsf"
+						class="ttr_menu_items_parent_link"><span class="menuchildicon"></span>Statistical</a>
+						<hr class="horiz_separator" /></li>
+					<li class="ttr_menu_items_parent dropdown"><a
+						href="http://localhost:18080/animal-care-web/AdminPages/statTown.jsf"
+						class="ttr_menu_items_parent_link"><span class="menuchildicon"></span>statistical
+							of Town</a>
 						<hr class="horiz_separator" /></li>
 				</ul>
 			</div>
-		
+
+
 		</div>
 	</div>
 	</nav>
+	<div id="ttr_page" class="container">
+		<div id="ttr_content_and_sidebar_container">
+			<div id="ttr_content">
+				<div id="ttr_content_margin" class="container-fluid">
+					<div
+						style="height: 0px; width: 0px; overflow: hidden; -webkit-margin-top-collapse: separate;"></div>
+					<div class="ttr_Home_html_row0 row">
+						<div class="post_column col-lg-12 col-md-12 col-sm-12 col-xs-12">
+							<div class="ttr_Home_html_column00">
+								<div
+									style="height: 0px; width: 0px; overflow: hidden; -webkit-margin-top-collapse: separate;"></div>
+								<div class="html_content">
+									<p style="text-align: Center;">
+										<span
+											style="font-family: 'Arial'; font-weight: 700; font-size: 2.143em; color: rgba(5, 38, 55, 1);">
+											Welcome </span>
+									</p>
+									<p
+										style="margin: 1.43em 0em 0em 0.57em; text-align: Center; line-height: 1.76056338028169;">
+										<span style="color: rgba(5, 38, 55, 1);"> </span><span
+											style="color: rgba(5, 38, 55, 1);">.</span>
+									</p>
+								</div>
 
 
+								<h:form>
+<center>
+
+<!-- 									<h:inputText value="#{annonceBean.place}" name="search" /> -->
+
+<!-- 									<h:commandButton action="#{annonceBean.searching()}" -->
+<!-- 										value="search" icon="ui-icon-disk"> -->
+<!-- 										<f:param name="place" value="#{annonceBean.place}"></f:param> -->
+<!-- 									</h:commandButton> -->
 
 
+									<h:dataTable value="#{annonceBean.getannonces()}" var="c"
+										border="1">
+										<f:facet name="header">All adverts</f:facet>
+										<h:column>
+											<f:facet name="header">Name Animal</f:facet>
+											<h:outputText value="#{c.animal.name}" />
+										</h:column>
+										<h:column>
+											<f:facet name="header">Name User</f:facet>
+											<h:outputText value="#{c.user.name}" />
+										</h:column>
 
-	<h:form>
-hi #{authentificationBean.user.name}
+										<h:column>
+											<f:facet name="header">Start Date</f:facet>
+											<h:outputText value="#{c.startDate}" />
+										</h:column>
+										<h:column>
+											<f:facet name="header">End  Date</f:facet>
+											<h:outputText value="#{c.endDate}" />
+										</h:column>
 
-		 <h:inputText  value="#{annonceBean.place}" name="search" />
+										<h:column>
+											<f:facet name="header"> Descritpion </f:facet>
+											<h:outputText value="#{c.description}" />
+										</h:column>
 
-             <h:commandButton action="#{annonceBean.searching()}" value="search" icon="ui-icon-disk">
-             <f:param name="place" value="#{annonceBean.place}"></f:param>
-             </h:commandButton>  
+										<h:column>
+											<f:facet name="header"> Place </f:facet>
+											<h:outputText value="#{c.place}" />
+										</h:column>
+
+                                        <h:column>
+										<h:commandButton action="#{annonceBean.supprimer(c)}"
+											value="Delete">
+											<f:setPropertyActionListener value="#{c.animal}"
+												target="#{annonceBean.animalSelected}"></f:setPropertyActionListener>
+										
+										</h:commandButton>
+</h:column>
+									</h:dataTable>
+									<h:form>
+										<h:commandButton value="new" action="#{annonceBean.doNew2()}" />
+									</h:form>
+								</center>
+								</h:form>
+
+								<div
+									style="height: 0px; width: 0px; overflow: hidden; -webkit-margin-top-collapse: separate;"></div>
+								<div style="clear: both;"></div>
+							</div>
+						</div>
+						<div
+							class="clearfix visible-lg-block visible-sm-block visible-md-block visible-xs-block">
+						</div>
+					</div>
+
+					<div class="clearfix visible-xs-block"></div>
+
+				</div>
+				<div
+					class="clearfix visible-lg-block visible-sm-block visible-md-block visible-xs-block">
+				</div>
+			</div>
+			<div class="ttr_Home_html_row3 row">
+				<div class="post_column col-lg-12 col-md-12 col-sm-12 col-xs-12">
+					<div class="ttr_Home_html_column30">
+						<div
+							style="height: 0px; width: 0px; overflow: hidden; -webkit-margin-top-collapse: separate;"></div>
+
+						<div
+							style="height: 0px; width: 0px; overflow: hidden; -webkit-margin-top-collapse: separate;"></div>
+						<div style="clear: both;"></div>
+					</div>
+				</div>
+				<div
+					class="clearfix visible-lg-block visible-sm-block visible-md-block visible-xs-block">
+				</div>
+			</div>
+			<div class="ttr_Home_html_row4 row">
+				<div class="post_column col-lg-6 col-md-6 col-sm-6 col-xs-12">
+					<div class="ttr_Home_html_column40">
+						<div
+							style="height: 0px; width: 0px; overflow: hidden; -webkit-margin-top-collapse: separate;"></div>
+						<div class="html_content">
+							<p>
+								<span class="ttr_image"
+									style="float: Left; overflow: hidden; margin: 0em 2.14em 0em 0em;"><span><img
+										class="ttr_uniform"
+										src="#{request.contextPath}/resources/images/34.png"
+										style="max-width: 50px; max-height: 50px;" /></span></span><span
+									style="font-family: 'Arial'; font-weight: 700; font-size: 1.143em; color: rgba(255, 255, 255, 1);">N</span><span
+									style="font-family: 'Arial'; font-weight: 700; font-size: 1.143em; color: rgba(255, 255, 255, 1);">UNC</span><span
+									style="font-family: 'Arial'; font-weight: 700; font-size: 1.143em; color: rgba(255, 255, 255, 1);">
+								</span><span
+									style="font-family: 'Arial'; font-weight: 700; font-size: 1.143em; color: rgba(255, 255, 255, 1);">IACULIS</span><span
+									style="font-family: 'Arial'; font-weight: 700; font-size: 1.143em; color: rgba(255, 255, 255, 1);">
+								</span><span
+									style="font-family: 'Arial'; font-weight: 700; font-size: 1.143em; color: rgba(255, 255, 255, 1);">SUSCIPIT</span><span
+									style="font-family: 'Arial'; font-weight: 700; font-size: 1.143em; color: rgba(255, 255, 255, 1);">
+								</span><span
+									style="font-family: 'Arial'; font-weight: 700; font-size: 1.143em; color: rgba(255, 255, 255, 1);">DUI</span><span
+									style="font-family: 'Arial'; font-weight: 700; font-size: 1.143em; color: rgba(255, 255, 255, 1);">.N</span><span
+									style="font-family: 'Arial'; font-weight: 700; font-size: 1.143em; color: rgba(255, 255, 255, 1);">AM</span><span
+									style="font-family: 'Arial'; font-weight: 700; font-size: 1.143em; color: rgba(255, 255, 255, 1);">
+								</span><span
+									style="font-family: 'Arial'; font-weight: 700; font-size: 1.143em; color: rgba(255, 255, 255, 1);">SIT</span><span
+									style="font-family: 'Arial'; font-weight: 700; font-size: 1.143em; color: rgba(255, 255, 255, 1);">
+								</span><span
+									style="font-family: 'Arial'; font-weight: 700; font-size: 1.143em; color: rgba(255, 255, 255, 1);">AMET</span><span
+									style="font-family: 'Arial'; font-weight: 700; font-size: 1.143em; color: rgba(255, 255, 255, 1);">
+								</span><span
+									style="font-family: 'Arial'; font-weight: 700; font-size: 1.143em; color: rgba(255, 255, 255, 1);">SEM</span><span
+									style="font-family: 'Arial'; font-weight: 700; font-size: 1.143em; color: rgba(255, 255, 255, 1);">.
+								</span>
+							</p>
+							<p style="margin: 1.43em 0em 0.36em 5.71em;">
+								<span style="color: rgba(255, 255, 255, 1);">Aliquam
+									libero nisi, imperdiet at, tincidunt nec, gravida vehicula,
+									nisl.Praesent mattis, massa quis luctus fermentum, turpis mi
+									volutpat justo, eu volutpat enim diam eget metus.Maecenas
+									ornare tortor.</span>
+							</p>
+						</div>
+
+					</div>
+				</div>
+
+				<div class="clearfix visible-xs-block"></div>
+				<div class="post_column col-lg-6 col-md-6 col-sm-6 col-xs-12">
+					<div class="ttr_Home_html_column41">
+						<div
+							style="height: 0px; width: 0px; overflow: hidden; -webkit-margin-top-collapse: separate;"></div>
+						<div class="html_content">
+							<p>
+								<span class="ttr_image"
+									style="float: Left; overflow: hidden; margin: 0em 2.14em 0em 0em;"><span><img
+										class="ttr_uniform"
+										src="#{request.contextPath}/resources/images/35.png"
+										style="max-width: 50px; max-height: 50px;" /></span></span><span
+									style="font-family: 'Arial'; font-weight: 700; font-size: 1.143em; color: rgba(255, 255, 255, 1);">A</span><span
+									style="font-family: 'Arial'; font-weight: 700; font-size: 1.143em; color: rgba(255, 255, 255, 1);">LIQUAM</span><span
+									style="font-family: 'Arial'; font-weight: 700; font-size: 1.143em; color: rgba(255, 255, 255, 1);">
+								</span><span
+									style="font-family: 'Arial'; font-weight: 700; font-size: 1.143em; color: rgba(255, 255, 255, 1);">LIBERO</span><span
+									style="font-family: 'Arial'; font-weight: 700; font-size: 1.143em; color: rgba(255, 255, 255, 1);">
+								</span><span
+									style="font-family: 'Arial'; font-weight: 700; font-size: 1.143em; color: rgba(255, 255, 255, 1);">NISI</span><span
+									style="font-family: 'Arial'; font-weight: 700; font-size: 1.143em; color: rgba(255, 255, 255, 1);">
+								</span><span
+									style="font-family: 'Arial'; font-weight: 700; font-size: 1.143em; color: rgba(255, 255, 255, 1);">IMPERDIAT</span><span
+									style="font-family: 'Arial'; font-weight: 700; font-size: 1.143em; color: rgba(255, 255, 255, 1);">
+								</span><span
+									style="font-family: 'Arial'; font-weight: 700; font-size: 1.143em; color: rgba(255, 255, 255, 1);">AT</span><span
+									style="font-family: 'Arial'; font-weight: 700; font-size: 1.143em; color: rgba(255, 255, 255, 1);">
+								</span><span
+									style="font-family: 'Arial'; font-weight: 700; font-size: 1.143em; color: rgba(255, 255, 255, 1);">NEC.</span>
+							</p>
+							<p style="margin: 1.43em 0em 0.36em 5.71em;">
+								<span style="color: rgba(255, 255, 255, 1);">G</span><span
+									style="color: rgba(255, 255, 255, 1);">ravida vehicula,
+									nisl.Praesent mattis, massa quis</span><span
+									style="color: rgba(255, 255, 255, 1);">.</span><span
+									style="color: rgba(255, 255, 255, 1);"> luctus
+									fermentum, turpis mi volutpat justo, eu volutpat enim diam</span><span
+									style="color: rgba(255, 255, 255, 1);">. </span><span
+									style="color: rgba(255, 255, 255, 1);">Praesent mattis,
+									massa quis</span><span style="color: rgba(255, 255, 255, 1);">.</span><span
+									style="color: rgba(255, 255, 255, 1);"> luctus
+									fermentum, turpis mi volutpat justo</span>
+							</p>
+						</div>
+						<div
+							style="height: 0px; width: 0px; overflow: hidden; -webkit-margin-top-collapse: separate;"></div>
+						<div style="clear: both;"></div>
+					</div>
+				</div>
+				<div
+					class="clearfix visible-lg-block visible-sm-block visible-md-block visible-xs-block">
+				</div>
+			</div>
+			<div class="ttr_Home_html_row5 row">
+				<div class="post_column col-lg-12 col-md-12 col-sm-12 col-xs-12">
+					<div class="ttr_Home_html_column50">
+						<div
+							style="height: 0px; width: 0px; overflow: hidden; -webkit-margin-top-collapse: separate;"></div>
+						<div class="html_content">
+							<p style="text-align: Center;">
+								<span
+									style="font-family: 'Arial'; font-weight: 700; font-size: 1.857em; color: rgba(5, 38, 55, 1);">CLIENTS
+									SAYS</span>
+							</p>
+						</div>
+						<div
+							style="height: 0px; width: 0px; overflow: hidden; -webkit-margin-top-collapse: separate;"></div>
+						<div style="clear: both;"></div>
+					</div>
+				</div>
+				<div
+					class="clearfix visible-lg-block visible-sm-block visible-md-block visible-xs-block">
+				</div>
+			</div>
+			<div class="ttr_Home_html_row6 row">
+				<div class="post_column col-lg-2 col-md-3 col-sm-3 col-xs-12">
+					<div class="ttr_Home_html_column60">
+						<div
+							style="height: 0px; width: 0px; overflow: hidden; -webkit-margin-top-collapse: separate;"></div>
+						<div class="html_content">
+							<p>
+								<span class="ttr_image"
+									style="float: none; display: block; text-align: center; overflow: hidden; margin: 0em 0em 0em 0em;"><span><img
+										class="ttr_uniform"
+										src="#{request.contextPath}/resources/images/36.png"
+										style="max-width: 150px; max-height: 150px;" /></span></span>
+							</p>
+						</div>
+						<div
+							style="height: 0px; width: 0px; overflow: hidden; -webkit-margin-top-collapse: separate;"></div>
+						<div style="clear: both;"></div>
+					</div>
+				</div>
+				<div class="clearfix visible-xs-block"></div>
+				<div class="post_column col-lg-4 col-md-9 col-sm-9 col-xs-12">
+					<div class="ttr_Home_html_column61">
+						<div
+							style="height: 0px; width: 0px; overflow: hidden; -webkit-margin-top-collapse: separate;"></div>
+						<div class="html_content">
+							<p>
+								<span
+									style="font-family: 'Arial'; font-weight: 700; font-size: 1.143em; color: rgba(5, 38, 55, 1);">A</span><span
+									style="font-family: 'Arial'; font-weight: 700; font-size: 1.143em; color: rgba(5, 38, 55, 1);">LIQUAM</span><span
+									style="font-family: 'Arial'; font-weight: 700; font-size: 1.143em; color: rgba(5, 38, 55, 1);">
+								</span><span
+									style="font-family: 'Arial'; font-weight: 700; font-size: 1.143em; color: rgba(5, 38, 55, 1);">LIBERO</span><span
+									style="font-family: 'Arial'; font-weight: 700; font-size: 1.143em; color: rgba(5, 38, 55, 1);">
+								</span><span
+									style="font-family: 'Arial'; font-weight: 700; font-size: 1.143em; color: rgba(5, 38, 55, 1);">NISI</span><span
+									style="font-family: 'Arial'; font-weight: 700; font-size: 1.143em; color: rgba(5, 38, 55, 1);">
+								</span><span
+									style="font-family: 'Arial'; font-weight: 700; font-size: 1.143em; color: rgba(5, 38, 55, 1);">IMPERDIAT</span><span
+									style="font-family: 'Arial'; font-weight: 700; font-size: 1.143em; color: rgba(5, 38, 55, 1);">
+								</span><span
+									style="font-family: 'Arial'; font-weight: 700; font-size: 1.143em; color: rgba(5, 38, 55, 1);">AT</span>
+							</p>
+							<p style="margin: 1.43em 0em 0.36em 0em;">
+								<span style="color: rgba(5, 38, 55, 1);">G</span><span
+									style="color: rgba(5, 38, 55, 1);">ravida vehicula,
+									nisl.Praesent mattis, massa quis</span><span
+									style="color: rgba(5, 38, 55, 1);">.</span><span
+									style="color: rgba(5, 38, 55, 1);"> luctus fermentum,
+									turpis mi volutpat justo, eu volutpat enim diam</span><span
+									style="color: rgba(5, 38, 55, 1);">. </span><span
+									style="color: rgba(5, 38, 55, 1);">Praesent mattis,
+									massa quis</span><span style="color: rgba(5, 38, 55, 1);">.</span><span
+									style="color: rgba(5, 38, 55, 1);"> luctus fermentum,
+									turpis mi volutpat justo</span><span
+									style="color: rgba(5, 38, 55, 1);">.</span>
+							</p>
+							<p>&nbsp;</p>
+						</div>
+						<div
+							style="height: 0px; width: 0px; overflow: hidden; -webkit-margin-top-collapse: separate;"></div>
+						<div style="clear: both;"></div>
+					</div>
+				</div>
+				<div
+					class="clearfix visible-sm-block visible-md-block visible-xs-block">
+				</div>
+				<div class="post_column col-lg-2 col-md-3 col-sm-3 col-xs-12">
+					<div class="ttr_Home_html_column62">
+						<div
+							style="height: 0px; width: 0px; overflow: hidden; -webkit-margin-top-collapse: separate;"></div>
+						<div class="html_content">
+							<p>
+								<span class="ttr_image"
+									style="float: none; display: block; text-align: center; overflow: hidden; margin: 0em 0em 0em 0em;"><span><img
+										class="ttr_uniform"
+										src="#{request.contextPath}/resources/images/37.png"
+										style="max-width: 150px; max-height: 150px;" /></span></span>
+							</p>
+						</div>
+						<div
+							style="height: 0px; width: 0px; overflow: hidden; -webkit-margin-top-collapse: separate;"></div>
+						<div style="clear: both;"></div>
+					</div>
+				</div>
+				<div class="clearfix visible-xs-block"></div>
+				<div class="post_column col-lg-4 col-md-9 col-sm-9 col-xs-12">
+					<div class="ttr_Home_html_column63">
+						<div
+							style="height: 0px; width: 0px; overflow: hidden; -webkit-margin-top-collapse: separate;"></div>
+						<div class="html_content">
+							<p>
+								<span
+									style="font-family: 'Arial'; font-weight: 700; font-size: 1.143em; color: rgba(5, 38, 55, 1);">N</span><span
+									style="font-family: 'Arial'; font-weight: 700; font-size: 1.143em; color: rgba(5, 38, 55, 1);">UNC</span><span
+									style="font-family: 'Arial'; font-weight: 700; font-size: 1.143em; color: rgba(5, 38, 55, 1);">
+								</span><span
+									style="font-family: 'Arial'; font-weight: 700; font-size: 1.143em; color: rgba(5, 38, 55, 1);">IACULIS</span><span
+									style="font-family: 'Arial'; font-weight: 700; font-size: 1.143em; color: rgba(5, 38, 55, 1);">
+								</span><span
+									style="font-family: 'Arial'; font-weight: 700; font-size: 1.143em; color: rgba(5, 38, 55, 1);">SUSCIPIT</span><span
+									style="font-family: 'Arial'; font-weight: 700; font-size: 1.143em; color: rgba(5, 38, 55, 1);">
+								</span><span
+									style="font-family: 'Arial'; font-weight: 700; font-size: 1.143em; color: rgba(5, 38, 55, 1);">DUI
+									AM</span><span
+									style="font-family: 'Arial'; font-weight: 700; font-size: 1.143em; color: rgba(5, 38, 55, 1);">
+								</span><span
+									style="font-family: 'Arial'; font-weight: 700; font-size: 1.143em; color: rgba(5, 38, 55, 1);">SIT.</span><span
+									style="font-family: 'Arial'; font-weight: 700; font-size: 1.143em; color: rgba(5, 38, 55, 1);">
+								</span>
+							</p>
+							<p style="margin: 1.43em 0em 0.36em 0em;">
+								<span style="color: rgba(5, 38, 55, 1);">Aliquam libero
+									nisi, imperdiet at, tincidunt nec, gravida vehicula,
+									nisl.Praesent mattis, massa quis luctus fermentum, turpis mi
+									volutpat </span><span style="color: rgba(5, 38, 55, 1);">j</span><span
+									style="color: rgba(5, 38, 55, 1);">usto, eu volutpat
+									enim diam eget</span><span style="color: rgba(5, 38, 55, 1);">.</span>
+							</p>
+						</div>
+						<div
+							style="height: 0px; width: 0px; overflow: hidden; -webkit-margin-top-collapse: separate;"></div>
+						<div style="clear: both;"></div>
+					</div>
+				</div>
+				<div
+					class="clearfix visible-lg-block visible-sm-block visible-md-block visible-xs-block">
+				</div>
+			</div>
+			<div class="ttr_Home_html_row7 row">
+				<div class="post_column col-lg-2 col-md-3 col-sm-3 col-xs-12">
+					<div class="ttr_Home_html_column70">
+						<div
+							style="height: 0px; width: 0px; overflow: hidden; -webkit-margin-top-collapse: separate;"></div>
+						<div class="html_content">
+							<p>
+								<span class="ttr_image"
+									style="float: none; display: block; text-align: center; overflow: hidden; margin: 0em 0em 0em 0em;"><span><img
+										class="ttr_uniform"
+										src="#{request.contextPath}/resources/images/38.png"
+										style="max-width: 150px; max-height: 150px;" /></span></span>
+							</p>
+						</div>
+						<div
+							style="height: 0px; width: 0px; overflow: hidden; -webkit-margin-top-collapse: separate;"></div>
+						<div style="clear: both;"></div>
+					</div>
+				</div>
+				<div class="clearfix visible-xs-block"></div>
+				<div class="post_column col-lg-4 col-md-9 col-sm-9 col-xs-12">
+					<div class="ttr_Home_html_column71">
+						<div
+							style="height: 0px; width: 0px; overflow: hidden; -webkit-margin-top-collapse: separate;"></div>
+						<div class="html_content">
+							<p>
+								<span
+									style="font-family: 'Arial'; font-weight: 700; font-size: 1.143em; color: rgba(5, 38, 55, 1);">N</span><span
+									style="font-family: 'Arial'; font-weight: 700; font-size: 1.143em; color: rgba(5, 38, 55, 1);">UNC</span><span
+									style="font-family: 'Arial'; font-weight: 700; font-size: 1.143em; color: rgba(5, 38, 55, 1);">
+								</span><span
+									style="font-family: 'Arial'; font-weight: 700; font-size: 1.143em; color: rgba(5, 38, 55, 1);">IACULIS</span><span
+									style="font-family: 'Arial'; font-weight: 700; font-size: 1.143em; color: rgba(5, 38, 55, 1);">
+								</span><span
+									style="font-family: 'Arial'; font-weight: 700; font-size: 1.143em; color: rgba(5, 38, 55, 1);">SUSCIPIT</span><span
+									style="font-family: 'Arial'; font-weight: 700; font-size: 1.143em; color: rgba(5, 38, 55, 1);">
+								</span><span
+									style="font-family: 'Arial'; font-weight: 700; font-size: 1.143em; color: rgba(5, 38, 55, 1);">DUI
+									AM</span><span
+									style="font-family: 'Arial'; font-weight: 700; font-size: 1.143em; color: rgba(5, 38, 55, 1);">
+								</span><span
+									style="font-family: 'Arial'; font-weight: 700; font-size: 1.143em; color: rgba(5, 38, 55, 1);">SIT.</span><span
+									style="font-family: 'Arial'; font-weight: 700; font-size: 1.143em; color: rgba(5, 38, 55, 1);">
+								</span>
+							</p>
+							<p style="margin: 1.43em 0em 0.36em 0em;">
+								<span style="color: rgba(5, 38, 55, 1);">Aliquam libero
+									nisi, imperdiet at, tincidunt nec, gravida vehicula,
+									nisl.Praesent mattis, massa quis luctus fermentum, turpis mi
+									volutpat </span><span style="color: rgba(5, 38, 55, 1);">j</span><span
+									style="color: rgba(5, 38, 55, 1);">usto, eu volutpat
+									enim diam eget</span><span style="color: rgba(5, 38, 55, 1);">.</span>
+							</p>
+						</div>
+						<div
+							style="height: 0px; width: 0px; overflow: hidden; -webkit-margin-top-collapse: separate;"></div>
+						<div style="clear: both;"></div>
+					</div>
+				</div>
+				<div
+					class="clearfix visible-sm-block visible-md-block visible-xs-block">
+				</div>
+				<div class="post_column col-lg-2 col-md-3 col-sm-3 col-xs-12">
+					<div class="ttr_Home_html_column72">
+						<div
+							style="height: 0px; width: 0px; overflow: hidden; -webkit-margin-top-collapse: separate;"></div>
+						<div class="html_content">
+							<p>
+								<span class="ttr_image"
+									style="float: none; display: block; text-align: center; overflow: hidden; margin: 0em 0em 0em 0em;"><span><img
+										class="ttr_uniform"
+										src="#{request.contextPath}/resources/images/39.png"
+										style="max-width: 150px; max-height: 150px;" /></span></span>
+							</p>
+						</div>
+						<div
+							style="height: 0px; width: 0px; overflow: hidden; -webkit-margin-top-collapse: separate;"></div>
+						<div style="clear: both;"></div>
+					</div>
+				</div>
+				<div class="clearfix visible-xs-block"></div>
+				<div class="post_column col-lg-4 col-md-9 col-sm-9 col-xs-12">
+					<div class="ttr_Home_html_column73">
+						<div
+							style="height: 0px; width: 0px; overflow: hidden; -webkit-margin-top-collapse: separate;"></div>
+						<div class="html_content">
+							<p>
+								<span
+									style="font-family: 'Arial'; font-weight: 700; font-size: 1.143em; color: rgba(5, 38, 55, 1);">A</span><span
+									style="font-family: 'Arial'; font-weight: 700; font-size: 1.143em; color: rgba(5, 38, 55, 1);">LIQUAM</span><span
+									style="font-family: 'Arial'; font-weight: 700; font-size: 1.143em; color: rgba(5, 38, 55, 1);">
+								</span><span
+									style="font-family: 'Arial'; font-weight: 700; font-size: 1.143em; color: rgba(5, 38, 55, 1);">LIBERO</span><span
+									style="font-family: 'Arial'; font-weight: 700; font-size: 1.143em; color: rgba(5, 38, 55, 1);">
+								</span><span
+									style="font-family: 'Arial'; font-weight: 700; font-size: 1.143em; color: rgba(5, 38, 55, 1);">NISI</span><span
+									style="font-family: 'Arial'; font-weight: 700; font-size: 1.143em; color: rgba(5, 38, 55, 1);">
+								</span><span
+									style="font-family: 'Arial'; font-weight: 700; font-size: 1.143em; color: rgba(5, 38, 55, 1);">IMPERDIAT</span><span
+									style="font-family: 'Arial'; font-weight: 700; font-size: 1.143em; color: rgba(5, 38, 55, 1);">
+								</span><span
+									style="font-family: 'Arial'; font-weight: 700; font-size: 1.143em; color: rgba(5, 38, 55, 1);">AT</span>
+							</p>
+							<p style="margin: 1.43em 0em 0.36em 0em;">
+								<span style="color: rgba(5, 38, 55, 1);">G</span><span
+									style="color: rgba(5, 38, 55, 1);">ravida vehicula,
+									nisl.Praesent mattis, assa quis</span><span
+									style="color: rgba(5, 38, 55, 1);">.</span><span
+									style="color: rgba(5, 38, 55, 1);"> luctus fermentum,
+									turpis mi volutpat justo, eu volutpat enim diam</span><span
+									style="color: rgba(5, 38, 55, 1);">. </span><span
+									style="color: rgba(5, 38, 55, 1);">Praesent attis, massa
+									quis</span><span style="color: rgba(5, 38, 55, 1);">.</span><span
+									style="color: rgba(5, 38, 55, 1);"> luctus fermentum,
+									turpis mi pat justo</span><span style="color: rgba(5, 38, 55, 1);">.</span>
+							</p>
+						</div>
+						<div
+							style="height: 0px; width: 0px; overflow: hidden; -webkit-margin-top-collapse: separate;"></div>
+						<div style="clear: both;"></div>
+					</div>
+				</div>
+				<div
+					class="clearfix visible-lg-block visible-sm-block visible-md-block visible-xs-block">
+				</div>
+			</div>
+			<div
+				style="height: 0px; width: 0px; overflow: hidden; -webkit-margin-top-collapse: separate;"></div>
+		</div>
+	</div>
+	<div style="clear: both"></div>
 
 
-			<h:dataTable value="#{annonceBean.getannoncesByMenmber()}" var="c" border="1">
-		<f:facet name="header">All adverts</f:facet>
-		<h:column>
-			<f:facet name="header">Name Animal</f:facet>
-			<h:outputText value="#{c.animal.name}" />
-		</h:column>
-		<h:column>
-			<f:facet name="header">Name User</f:facet>
-			<h:outputText value="#{c.user.name}" />
-		</h:column>
-		
-		<h:column>
-			<f:facet name="header">Start Date</f:facet>
-			<h:outputText value="#{c.startDate}" />
-		</h:column>
-		<h:column>
-			<f:facet name="header">End  Date</f:facet>
-			<h:outputText value="#{c.endDate}" />
-		</h:column>
-		
-		<h:column>
-			<f:facet name="header"> Descritpion </f:facet>
-			<h:outputText value="#{c.description}" />
-		</h:column>
-		
-		<h:column>
-			<f:facet name="header"> Place </f:facet>
-			<h:outputText value="#{c.place}" />
-		</h:column>
-		
-		
-		
-		
-	</h:dataTable>
-	<h:form>
-		<h:commandButton value="new" action="#{annonceBean.doNew()}" />
-	</h:form>
-</h:form>
-
-
-<div style="height: 0px; width: 0px; overflow: hidden;"></div>
+	<div style="height: 0px; width: 0px; overflow: hidden;"></div>
 	<footer id="ttr_footer">
 	<div class="ttr_footerHome_html_row0 row">
 		<div class="post_column col-lg-3 col-md-6 col-sm-6 col-xs-12">
@@ -366,8 +825,20 @@ s.parentNode.insertBefore(wf, s);
 })();
 </script>
 
-</h:body> 
 
-
+</h:body>
 
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -5,10 +5,11 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
-import javax.faces.bean.SessionScoped;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
 
 import persistence.Animal;
 import persistence.Annonce;
@@ -27,60 +28,60 @@ public class AnimalBean {
 
 	@EJB
 	private AnimalServiceLocal animalServiceLocal;
-	
+
 	@ManagedProperty(value = "#{authentificationBean}")
 	private AuthentificationBean authentificationBean;
 
 	@PostConstruct
 	public void init() {
 		animals = animalServiceLocal.findAll();
-	   animalsBYUser = animalServiceLocal.findAnimalsByMember(authentificationBean.getUser());
-     // animal=animalServiceLocal.createAnimal(animal);
-    		 
+		animalsBYUser = animalServiceLocal.findAnimalsByMember(authentificationBean.getUser());
+		// animal=animalServiceLocal.createAnimal(animal);
+
 	}
 
-	
 	public String addAnimal() {
-		
-        
-		animalServiceLocal.create(animal,authentificationBean.getUser());
-        
-			return "/pages/listanimal?faces-redirect=true";
-		
+
+	//	FacesContext.getCurrentInstance().addMessage("form:btn", new FacesMessage("bad credentials"));
+
+		animalServiceLocal.create(animal, authentificationBean.getUser());
+
+		return "/pages/listanimal?faces-redirect=true";
+
 	}
-	
+
 	public String deleteAnimal(Animal ann) {
 
-		
 		animalServiceLocal.removeA(ann, authentificationBean.getUser());
-		
-		
-		return "/pages/listanimal?faces-redirect=true";	
-		
-		
+
+		return "/pages/listanimal?faces-redirect=true";
+
+	}
+
+	public String deleteAnimal1(Animal ann) {
+
+		animalServiceLocal.delete(ann);
+
+		return "/AdminPages/listanimal?faces-redirect=true";
+
 	}
 
 	public void AfficheAnimal() {
 
 		animalServiceLocal.save(animal);
 
-			
-		
 	}
 
-	
-	public String UpdateAnimal(){
-		animalServiceLocal.updateA(animal,authentificationBean.getUser());
+	public String UpdateAnimal() {
+		animalServiceLocal.updateA(animal, authentificationBean.getUser());
 		return "/pages/listanimal?faces-redirect=true";
 	}
 
-	
-	public String NavigateUpdate(Animal c){
+	public String NavigateUpdate(Animal c) {
 		return "/pages/UpdateAnimal?faces-redirect=true";
-		
+
 	}
-	
-	
+
 	public List<Animal> getAnimals() {
 		return animals;
 	}

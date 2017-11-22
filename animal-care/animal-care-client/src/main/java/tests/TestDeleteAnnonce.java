@@ -25,7 +25,7 @@ public class TestDeleteAnnonce {
 
 		User user = userServicesRemote.find(3);
 		Animal animal = animalServiceRemote.find(2);
-		annomceServiceRemote.DeleteAnnonce(user,animal);
+	//	annomceServiceRemote.DeleteAnnonce(user,animal);
 
 	}
 

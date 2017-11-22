@@ -45,7 +45,7 @@ public class satBean {
 		BarChartModel model = new BarChartModel();
 
 	ChartSeries stats = new ChartSeries();
-stats.setLabel("Number of Rates");
+stats.setLabel("");
 	List<Annonce> ltp = csl.getPlaces();
 	for (Annonce s : ltp) {
 		Number number = csl.nbrAnnonceByPlaces(s.getPlace());

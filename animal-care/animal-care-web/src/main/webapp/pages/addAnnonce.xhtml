@@ -2,7 +2,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:ui="http://java.sun.com/jsf/facelets">
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
 
 
 
@@ -103,6 +104,7 @@
 	<h:form id="form">
 
 		<h:panelGrid columns="2" bgcolor="#00bfff" border="2">
+			
 			<h:outputText value="animal" />
 			
 			<h:selectOneMenu value="#{annonceBean.animalSelected}" converter="ac">
@@ -111,28 +113,31 @@
 					itemLabel="#{a.name}" itemValue="#{a.name}"></f:selectItems>
 			</h:selectOneMenu>
 			
-			<h:outputText value="description" />
+			<h:outputText value="Description" />
 			<h:inputText value="#{annonceBean.annonce.description}" />
 			
 			
+			<h:outputText value="Place" />
+			<h:inputText value="#{annonceBean.annonce.place}" />
+			
+			
 			<h:outputText value="Date Start" />
-			<h:inputText id = "dateInput"  value="#{annonceBean.annonce.startDate}" 
+			<p:calendar id = "dateInput"  value="#{annonceBean.annonce.startDate}" 
             label = "Date" >
-            <f:convertDateTime pattern = "dd-mm-yyyy" />
-             </h:inputText>
+            <f:convertDateTime pattern ="dd/MM/yyyy"/>
+            </p:calendar>
            
          
 			<h:outputText value="Date End" >
 			
 			  
 			</h:outputText>
-			<h:inputText value="#{annonceBean.annonce.endDate}" >
-			<f:convertDateTime pattern = "dd-mm-yyyy" />
+			
+			<h:inputText value="#{annonceBean.annonce.endDate}"  >
+			
+			<f:convertDateTime pattern="dd/MM/yyyy"/>
 			</h:inputText>
-			<h:outputText value="Place" />
-			<h:inputText value="#{annonceBean.annonce.place}" />
-
-
+	
 
 		</h:panelGrid>
 		

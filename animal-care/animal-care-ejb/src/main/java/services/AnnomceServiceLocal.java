@@ -16,7 +16,7 @@ public interface AnnomceServiceLocal extends IGenericDAO<Annonce>{
 //	int plus ();
 	void createAnnonce(User user, Animal animal, Date startDate, Date endtDate, String description, String place);
 	
-	void DeleteAnnonce(User user, Animal animal);
+	void DeleteAnnonce(Annonce an);
 	
 	List <Annonce>findAnnonceByAnimal(Animal animal);
 	long nbrAnnonceByPlaces(String  place);
@@ -40,4 +40,5 @@ public interface AnnomceServiceLocal extends IGenericDAO<Annonce>{
  Map<String,Long> getAnimalByTown();
 	 Annonce chercherAnnoncebyPlace(String place);
 
+	
 }

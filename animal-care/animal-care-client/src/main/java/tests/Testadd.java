@@ -25,9 +25,11 @@ public class Testadd {
 		AnnomceServiceRemote annomceServiceRemote = (AnnomceServiceRemote) context
 				.lookup("animal-care-ear/animal-care-ejb/AnnomceService!services.AnnomceServiceRemote");
 		
-		
-Number a = annomceServiceRemote.CountUsers();
-System.out.println(a);
+		User user = userServicesRemote.find(3);
+		Animal animal = animalServiceRemote.find(5);
+		Annonce annonce=new Annonce(); 
+	//	annomceServiceRemote.DeleteAnnonce(annonce);
+
 
 
 	}

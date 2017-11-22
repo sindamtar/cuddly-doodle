@@ -19,6 +19,7 @@ import javax.persistence.TypedQuery;
 
 import persistence.Animal;
 import persistence.Annonce;
+import persistence.AnnonceId;
 import persistence.User;
 
 import utilities.GenericDAO;
@@ -78,12 +79,40 @@ public class AnnomceService extends GenericDAO<Annonce>  implements AnnomceServi
 	private UserServicesLocal UserServicesLocal;
 
 	@Override
-	public void DeleteAnnonce(User user, Animal animal)  {
+	public void DeleteAnnonce(Annonce an)  {
 		
 	
+			
+			entityManager.remove(entityManager.merge(an));
+		
 		
 	}
 	
+	
+	
+	
+	
+	
+	
+//	public void sendEmail ()
+//	{
+//		TypedQuery<Annonce> query1 = entityManager.createQuery("select a from Annonce a ", Annonce.class);
+//		
+//		List<Annonce> listOffer = query1.getResultList();
+//		
+//		for (Annonce offer : listOffer)
+//		{
+//			
+//		
+//			
+//			
+//				System.out.println("id de offer : "+offer.getAnnonceId());
+//			
+//			
+//			
+//		}
+//	}
+//	
 	
 	
 	
@@ -300,6 +329,8 @@ public class AnnomceService extends GenericDAO<Annonce>  implements AnnomceServi
 		
 		return entityManager.find(Annonce.class, place);
 	}
+
+
 
 	
 

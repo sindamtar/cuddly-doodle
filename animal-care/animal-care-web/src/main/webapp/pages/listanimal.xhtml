@@ -104,20 +104,21 @@
 
 
 		<h:form>
+		<center>
 hi #{authentificationBean.user.name}
 		<h:dataTable value="#{animalBean.animalsBYUser}" var="a" border="2">
 			<h:column>
-				<f:facet name="header">
+				
 					<h:outputText value="name" />
-				</f:facet>
+				
 				<h:outputText value="#{a.name}" />
 					
 			</h:column>
 			
 				<h:column>
-				<f:facet name="header">
+				
 					<h:outputText value="Breed" />
-				</f:facet>
+				
 				<h:outputText value="#{a.breed}" />
 					
 			</h:column>
@@ -125,9 +126,9 @@ hi #{authentificationBean.user.name}
 			
 			
 				<h:column>
-				<f:facet name="header">
+				
 					<h:outputText value="Age" />
-				</f:facet>
+			
 				<h:outputText value="#{a.age}" />
 					
 			</h:column>
@@ -135,9 +136,9 @@ hi #{authentificationBean.user.name}
 
 
 				<h:column>
-				<f:facet name="header">
+				
 					<h:outputText value="Type" />
-				</f:facet>
+			
 				<h:outputText value="#{a.type}" />
 					
 			</h:column>
@@ -145,14 +146,14 @@ hi #{authentificationBean.user.name}
 		
 				
 			<h:column>
-<f:facet name="header"> ici</f:facet>
+
 <h:commandButton action="#{animalBean.deleteAnimal(a)}" value="Delete" >
 </h:commandButton>
 </h:column>
 
 
 <h:column>
-<f:facet name="header">ici</f:facet>
+
 <h:commandButton action="#{animalBeans.NavigateUpdate(a)}" value="Update" style="width : 84px; height : 23px;">
 <f:setPropertyActionListener value="#{a}" target="#{animalBeans.animal}"/>
 </h:commandButton>
@@ -162,7 +163,7 @@ hi #{authentificationBean.user.name}
 		</h:dataTable>
 		<h:commandLink action="addAnimal" value="Add animal" />
 
-
+</center>
 	</h:form>
 
 

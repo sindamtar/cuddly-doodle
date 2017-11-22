@@ -151,6 +151,13 @@ public class Annonce implements Serializable {
 		return animal;
 	}
 
+	public Annonce(User user, Animal animal) {
+		super();
+		this.user = user;
+		this.animal = animal;
+	}
+
+
 	public void setAnimal(Animal animal) {
 		this.animal = animal;
 	}

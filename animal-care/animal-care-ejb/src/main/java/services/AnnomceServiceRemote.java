@@ -16,7 +16,7 @@ import utilities.IGenericDAO;
 public interface AnnomceServiceRemote  extends IGenericDAO<Annonce> {
 	// int plus();
 	void createAnnonce(User user, Animal animal, Date startDate, Date endtDate, String description, String place);
-	void DeleteAnnonce(User user, Animal animal);
+	void DeleteAnnonce(Annonce ann);
 	 List<Annonce> findAnnonceByAnimal(Animal animal);
      
 	 List<Annonce> findAnnonceByMember(User user);
